@@ -1,0 +1,253 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17-Oct-2014, 00:17:41
+    Author     : Marcus
+*/
+
+article {
+    display: block;
+    float: left;
+    width: 11%;
+    margin-left: 2%;
+    background: url(/WebscriptSite/assets/textures/paper_fibers.png) repeat 0 0;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 5%;
+    box-shadow: 0px 0px 12.5px black;
+}
+
+.BasicText {
+}
+
+.BasketText {
+    display: inline-block;
+    width: 50%;
+    float: left;
+}
+
+.banner {
+    width: 50%;
+    float: right;
+    padding-left: 1.75%;
+    padding-bottom: 1%
+}
+
+
+body {
+  background: url(/WebscriptSite/assets/textures/footer_lodyas.png) repeat 0 0;
+
+  margin-bottom: 2.5%;
+  margin-top: 1%;
+}
+
+ .Copyright {
+ text-align: center;
+}
+
+.FeaturedContainer {
+    padding-bottom: 1.5%;
+    padding-top: 1.5%;
+}
+
+.featuredItem { 
+    padding-top: 1.5%;
+    display: inline-block;
+    width: 32%;
+    border: #0158c2 dashed;
+    text-align: center;
+    alignment-adjust: central;
+    background: #85bcff;
+    padding-bottom: 1%;
+    alignment-adjust: central;
+    
+}
+
+.itemContainer {
+    padding-top: 1.5%;
+}
+    
+
+
+footer{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 5%;
+    margin-right: 2.5%;
+    display: block;
+    width: 95%;
+    height: 5vh;
+    margin-left: 2.5%;
+    float: right;
+    box-shadow: 0px 0px 12.5px black;
+    background: url(/WebscriptSite/assets/textures/paper_fibers.png) repeat 0 0;
+}
+
+
+.footerMenu ul {
+list-style-type:none;
+margin:0;
+padding:0;
+text-align: center;
+}
+
+.footerMenu a:link,a:visited {
+background: #0158c2;
+color: #85bcff;
+display:block;
+font-weight:bold;
+padding:4px;
+text-decoration:none;
+text-transform:uppercase;
+width:200px;
+}
+
+.footerMenu a:hover, a:active {
+    background-color:#8dd9fb;
+    color:#0158c2;
+}
+
+.footerMenu li {
+float: right;
+border: thin solid #0158c2;
+    
+box-shadow: 0px 0px 10px black;
+}
+
+h1 {
+    font-family: 'Lobster', Georgia, Times, serif;
+    font-size: 70px;
+    line-height: 100px;
+    color: whitesmoke;
+}
+ 
+h2 {
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
+    font-size: 25px;
+}
+
+#homepageTitle {
+    font-size: 50px !important;
+}
+
+li, ul {
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
+}
+
+.logo {
+    display: inline-block;
+    width: 18%;
+    height: auto;
+    float: left;
+}
+
+    
+.MainSection {
+    display: inline-block;
+    box-shadow: 0px 0px 12.5px black;
+    padding-right: 3.25%;
+    padding-left: 5%;
+    padding-bottom: 2.5%;
+    padding-top: 2.5%;
+    width: 75%;
+    background: url(/WebscriptSite/assets/textures/paper_fibers.png) repeat 0 0;
+    margin-left: 2.5%;
+    float: left;
+}
+
+#numberInBasket {
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+p {
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
+    font-size: 19px;
+    line-height: 25px;
+}
+
+.ProductBar {
+    text-align: center;
+    font-size: 1.25em;
+}
+
+header {
+    display: inline-block;
+}
+
+.Subheading {
+    letter-spacing: 1px;
+    
+}
+
+.Title {
+display: inline-block;
+letter-spacing: 1px;
+font-size: 75px;
+text-align: center;
+float: left;
+padding-top: 1.5%;
+margin-left: 30%;
+margin-top: auto;
+font-weight: 600;
+text-shadow: 1px 1px 1px #ccc;
+}
+
+
+.TopContainer {
+display: inline-block;
+width: 95%;
+margin-bottom: 2.5%;
+margin-left: 2.5%;
+margin-right: 2.5%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#recentItemList {
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+
+.topMenu ul {
+list-style-type:none;
+margin:0;
+padding:0;
+text-align: center;
+}
+
+.topMenu a:link,a:visited {
+background: #0158c2;
+color: #85bcff;
+display:block;
+font-weight:bold;
+padding:4px;
+text-decoration:none;
+text-transform:uppercase;
+width: 175px;
+padding-right: 0px;
+padding-left: 0px;
+}
+
+.topMenu a:hover, a:active {
+    background-color:#8dd9fb;
+    color:#0158c2;
+}
+
+.topMenu li {
+float: right;
+border: thin solid #0158c2;
+box-shadow: 0px 0px 10px black;
+}
+
+
+
+
+
+

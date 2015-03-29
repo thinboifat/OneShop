@@ -1,0 +1,2 @@
+<img class="image" src="/WebscriptSite/images/productdummy.png" alt="Dummy image for client to change"/>
+<p>A Item of shopping, featured on the front page</p>

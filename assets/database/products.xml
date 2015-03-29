@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CATALOG>
+    <ELECTRICAL>
+        <DRILL>
+            <P_NAME>BLACK AND DECKER EPC18CA</P_NAME>
+            <P_NUMBER>4001</P_NUMBER>
+            <P_IMAGE>src="/WebscriptSite/images/blackdeckerdrill.jpg"</P_IMAGE>
+            <P_PRICE>40.00</P_PRICE>
+            <P_DESC>The Black and Decker EPC18CA-GB is a powerful 18 v cordless drill driver that is designed for DIY tasks around the home and outdoor repairs. Whether drilling into wood or metal, this cordless drill driver has the power to cope with the toughest of jobs quickly and efficiently.</P_DESC>
+        </DRILL>
+        <DRILL>
+            <P_NAME></P_NAME>
+            <P_NUMBER>4002</P_NUMBER>
+            <P_IMAGE>src="/WebscriptSite/images/.jpg"</P_IMAGE>
+            <P_PRICE>40.00</P_PRICE>
+            <P_DESC></P_DESC>
+        </DRILL>
+        <DRILL>
+            <P_NAME></P_NAME>
+            <P_NUMBER>4003</P_NUMBER>
+            <P_IMAGE>src="/WebscriptSite/images/.jpg"</P_IMAGE>
+            <P_PRICE>40.00</P_PRICE>
+            <P_DESC></P_DESC>
+        </DRILL>
+        <DRILL>
+            <P_NAME></P_NAME>
+            <P_NUMBER>4004</P_NUMBER>
+            <P_IMAGE>src="/WebscriptSite/images/.jpg"</P_IMAGE>
+            <P_PRICE>40.00</P_PRICE>
+            <P_DESC></P_DESC>
+        </DRILL>
+    </ELECTRICAL>
+    <GARDENING></GARDENING>
+    <TOOLS></TOOLS>
+    <LIGHTING></LIGHTING>
+</CATALOG>
