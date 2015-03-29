@@ -10,6 +10,7 @@ and open the template in the editor.
 
 article {
     display: block;
+    /* position: fixed; */
     float: left;
     width: 11%;
     margin-left: 2%;

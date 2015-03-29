@@ -19,14 +19,16 @@ function updateBasket() {
 function initialise() {
     //Check for any existing shopping basket cookie data. If found, update 
     //numberOfItems with the amount of items in basket, and basket[] with items.
+    getNumberOfItems();
     updateBasket();
     if (document.cookie.indexOf("basketContents") >= 0) {
         log("cookies here");
     }
     else {
         createCookie("basketContents", "");
-        log("no cookies");
+        log("no cookies here, one has been created");
     }
+    //addToBasket("whey protien");
 }
 
 //Add the selected item to the basket. Increase number of items by one, and update cookies.
@@ -35,7 +37,8 @@ function addToBasket(itemName) {
     cookie = document.cookie;
     cookie = cookie + itemName + ",";
     modifyCookie(cookie);
-    log (itemname + "added to basket");
+    log (itemName + " added to basket");
+    updateBasket();
 }
 
 //Log a message to the console for testing purposes
@@ -49,4 +52,8 @@ function createCookie(name, contents) {
 
 function modifyCookie(contents){
     document.cookie = contents + "; " + "expires=Thu, 1 Jan 2020 00:00:00 UTC;";
+}
+
+function getNumberOfItems() {
+    cookie = document.cookie;
 }
