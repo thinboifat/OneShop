@@ -7,6 +7,7 @@
 var numberOfItems = 0;
 var items = [];
 var basket = document.getElementById("numberInBasket");
+log(document.cookie);
 initialise();
 
 
@@ -26,8 +27,6 @@ function updateBasket() {
 function initialise() {
     //Check for any existing shopping basket cookie data. If found, update 
     //numberOfItems with the amount of items in basket, and basket[] with items.
-    getNumberOfItems();
-    updateBasket();
     if (document.cookie.indexOf("basketContents") >= 0) {
         log("cookies here");
     }
@@ -35,6 +34,7 @@ function initialise() {
         createCookie("basketContents", "");
         log("no cookies here, one has been created");
     }
+    updateBasket();
     //addToBasket("whey protien");
 }
 
@@ -61,10 +61,6 @@ function modifyCookie(contents){
     document.cookie = contents + "; " + "expires=Thu, 1 Jan 2020 00:00:00 UTC;";
 }
 
-function getNumberOfItems() {
-    cookie = document.cookie;
-}
-
 // Created from http://www.quirksmode.org/js/cookies.html
 function readCookie(name) {
 	var nameEQ = name + "=";
@@ -81,12 +77,21 @@ function readCookie(name) {
 // the basket contents, then split the list by numbe of commas to find the lenght.
 // Take one away to allow for the extra comma. Return the length.
 function lengthOfBasket() {
-	var cookie = document.cookie.split(';');
-        var splitCookie = cookie[0].split ('Contents=');
-        var len = splitCookie[1].split(',').length - 1;
-        log(len);
-        log(splitCookie);
-        return len;
+        if (document.cookie !== null) {
+            var cookie = document.cookie.split(';');
+            log(cookie);
+            var splitCookie = cookie[0].split ('Contents=');
+            log(splitCookie);
+            //Check if basketCookie is present, if yes, split items by comma.
+            basketCookie = readCookie('basketContents');
+            if (basketCookie !== null) {
+                var len = splitCookie[1].split(',').length - 1;
+                log(len);
+                return len; }
+            return 0;
+        }
+        return 0;
+    
         //numberOfCookies = len.length;
 	
 }
