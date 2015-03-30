@@ -10,8 +10,15 @@ var basket = document.getElementById("numberInBasket");
 initialise();
 
 
+function addTestItems() {
+    addToBasket("grapes");
+    addToBasket("apples");
+    addToBasket("pears");
+}
+
 //Update the shopping basket to reflect the items the user has added to basket.
 function updateBasket() {
+    numberOfItems = lengthOfBasket();
     basket.innerHTML = numberOfItems;
 }
 
@@ -56,4 +63,30 @@ function modifyCookie(contents){
 
 function getNumberOfItems() {
     cookie = document.cookie;
+}
+
+// Created from http://www.quirksmode.org/js/cookies.html
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)===' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+// Read how many items have been added to the basket. Split the cookie to access
+// the basket contents, then split the list by numbe of commas to find the lenght.
+// Take one away to allow for the extra comma. Return the length.
+function lengthOfBasket() {
+	var cookie = document.cookie.split(';');
+        var splitCookie = cookie[0].split ('Contents=');
+        var len = splitCookie[1].split(',').length - 1;
+        log(len);
+        log(splitCookie);
+        return len;
+        //numberOfCookies = len.length;
+	
 }
