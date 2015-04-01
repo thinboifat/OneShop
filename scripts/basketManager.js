@@ -1,7 +1,5 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * UP647395
  */
 
 var numberOfItems = 0;
@@ -10,6 +8,9 @@ var basket = document.getElementById("numberInBasket");
 log(document.cookie);
 initialise();
 
+function allowImageDrop(event) {
+    event.preventDefault();
+}
 
 function addTestItems() {
     addToBasket("grapes");
@@ -17,12 +18,43 @@ function addTestItems() {
     addToBasket("pears");
 }
 
+function addBasketDrag(event) {
+    event.dataTransfer.setData("text", event.target.id);
+}
+
+function addBasketDrop(event) {
+    event.preventDefault();
+    var itemID = event.dataTransfer.getData("text");
+    log(itemID);
+    addToBasket(itemID);
+}
+
+function addImageToBasket() {
+    
+}
+
+
 //Update the shopping basket to reflect the items the user has added to basket.
 function updateBasket() {
     numberOfItems = lengthOfBasket();
     basket.innerHTML = numberOfItems;
 }
 
+//Add event listeners to every add to basket button on the page.
+function addToBasketListeners() {
+    var buttons = document.getElementsByClassName("addToBasket");
+    log(buttons);
+    log(buttons.length);
+    if (buttons !== null) {
+        for(var i=0;i< buttons.length;i++){
+            itemId = buttons[i].id;
+            buttons[i].addEventListener('click', addToBasket(itemId));
+        }
+    }
+    else 
+        log("No add to basket buttons found.");
+    }
+    
 //Check for cookies, update basket if basketContents cookie exists, else create it.
 function initialise() {
     //Check for any existing shopping basket cookie data. If found, update 
@@ -35,6 +67,7 @@ function initialise() {
         log("no cookies here, one has been created");
     }
     updateBasket();
+    addToBasketListeners();
     //addToBasket("whey protien");
 }
 

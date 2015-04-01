@@ -38,7 +38,7 @@ This website was built by Marcus Cole
                 <div class="featuredItem" id="featured6"></div>
                 </div>
         </section>
-        <article>
+        <article ondrop="addBasketDrop(event)" ondragover="allowImageDrop(event)" id="ShoppingBasket">
             <h2 class="ProductBar" id="basket">Basket</h2>
             <div class="Container" id="basketContainer">
             <h3 class="BasketText" id="numberInBasket">Javascript must be enabled!</h3>
