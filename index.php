@@ -43,6 +43,7 @@ This website was built by Marcus Cole
             <div class="Container" id="basketContainer">
             <h3 class="BasketText" id="numberInBasket">Javascript must be enabled!</h3>
             <h3 class="BasketText" id="numberInBasket">Items</h3>
+            <button id="clearBasket">Clear Basket</button>
             </div>
         </article>
         <article>
