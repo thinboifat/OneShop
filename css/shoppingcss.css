@@ -168,6 +168,17 @@ li, ul {
     float: left;
 }
 
+.MainBasketSection {
+    display: inline-block;
+    box-shadow: 0px 0px 12.5px black;
+    padding-bottom: 2.5%;
+    padding-top: 2.5%;
+    width: 90%;
+    background: url(/WebscriptSite/assets/textures/paper_fibers.png) repeat 0 0;
+    margin-left: 5%;
+    float: left;
+}
+
 #numberInBasket {
     font-family: 'Cabin', Helvetica, Arial, sans-serif;
     text-align: center;

@@ -5,7 +5,7 @@ This website was built by Marcus Cole
 
 <html>
     <head>
-        <link rel="stylesheet" href="css/shoppingCSS.css" type="text/css"/>
+        <link rel="stylesheet" href="/WebscriptSite/css/shoppingCSS.css" type="text/css"/>
         <link rel="icon" type="image/png" href="/assets/favicon.png">
         <title>One Shop Shopping</title>
         <meta charset="UTF-8">
@@ -15,17 +15,21 @@ This website was built by Marcus Cole
         <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css">
         
-
     </head>
     <body>
         <header class="TopContainer">
-        <?php include('assets/navbar.php');?>
-        <h1 class="Title" id="homepageTitle">Checkout</h1>
+            <?php 
+                $path = $_SERVER['DOCUMENT_ROOT'];
+                $path .= "/WebscriptSite/assets/navbar.php";
+                include_once($path);
+            ?>
+        <h1 class="Title" id="homepageTitle">Welcome To One-Shop!</h1>
         </header>
-        <section class="MainSection">
-        <h2 class="Subheading">Your Basket</h2>
-                 
-        </section>
+        <section class="MainBasketSection">
+        <h2 class="Subheading" id="numberInBasket">Your Basket</h2>
+        
+        
+         </section>
         <footer>
             <section class="Copyright">
                 This site was developed by Marcus Cole.
@@ -37,4 +41,5 @@ This website was built by Marcus Cole
             </section>
         </footer>
     </body>
+    <script src="/WebscriptSite/scripts/checkout.js"> </script>
 </html>

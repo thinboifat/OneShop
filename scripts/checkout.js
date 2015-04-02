@@ -1,5 +1,7 @@
 /* 
- * UP647395
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 
 var numberOfItems = 0;
@@ -24,48 +26,8 @@ function initialise() {
     if (storage) {
         log("Storage Is Supported");
     }
-    window.addEventListener('storage', onChangeInStorage, false);
-    clearButton = document.getElementById("clearBasket");
-    clearButton.addEventListener("click", clearStorage, false);
     updateBasket();
-    addToBasketListeners();
     //addToBasket("whey protien");
-}
-
-function allowImageDrop(event) {
-    event.preventDefault();
-}
-
-function addTestItems() {
-    addToBasket("grapes");
-    addToBasket("apples");
-    addToBasket("pears");
-}
-
-function addBasketDrag(event) {
-    event.dataTransfer.setData("text", event.target.id);
-}
-
-function addBasketClick(event) {
-    addToBasket(event.target.id);
-}
-
-//Provides the behavior for dropping over the basket.
-//Adds item ID to local storage
-function addBasketDrop(event) {
-    event.preventDefault();
-    var itemID = event.dataTransfer.getData("text");
-    log(itemID);
-    addToStorage(itemID);
-    addToBasket(itemID);
-}
-
-//Add item to the shooping basket storage. Uses the 
-function addToStorage(itemToAdd) {
-    basketposition = numberOfItems+1;
-    itemString = String("item" + basketposition);
-    log(itemString);
-    localStorage.setItem (itemString, itemToAdd);
 }
 
 //Remove item from the shooping basket storage
@@ -76,7 +38,8 @@ function removeFromStorage(itemToRemove) {
 //Update the shopping basket to reflect the items the user has added to basket.
 function updateBasket() {
     numberOfItems = lengthOfBasket();
-    basket.innerHTML = numberOfItems;
+    if (numberOfItems === 1) basket.innerHTML = ("You Have " + numberOfItems + " Item In Your Basket");
+    else basket.innerHTML = ("You Have " + numberOfItems + " Items In Your Basket");
     readStorage();
 }
 
@@ -85,21 +48,6 @@ function onChangeInStorage(storageEvent) {
     //alert(storageEvent.Id + "Added To Basket");
 }
 
-//Add event listeners to every add to basket button on the page.
-function addToBasketListeners() {
-    var buttons = document.getElementsByClassName("addToBasket");
-    //log(buttons);
-    //log(buttons.length);
-    if (buttons !== null) {
-        for(var i=0;i< buttons.length;i++){
-            itemId = buttons[i].id;
-            buttons[i].addEventListener('click', addToBasket(itemId));
-        }
-    }
-    else 
-        log("No add to basket buttons found.");
-    }
-  
 function clearStorage() {
     if (confirm("Are You Sure You Want To Empty Your Basket?") === true) {}
     else return;
@@ -117,18 +65,6 @@ function initLocalStorage() {
     else { log("noSystemStorage");
         return false;
     }
-}
-
-//Add the selected item to the basket. Increase number of items by one, and update cookies.
-function addToBasket(itemName) {
-    addToStorage(itemName);
-    numberOfItems ++;
-    cookie = document.cookie;
-    cookie = cookie + itemName + ",";
-    modifyCookie(cookie);
-    updateBasket();
-    alert(itemName + " added to basket");
-    log (itemName + " added to basket");
 }
 
 //Log a message to the console for testing purposes

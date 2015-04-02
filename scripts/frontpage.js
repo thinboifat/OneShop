@@ -5,7 +5,7 @@
  */
 
 var ajaxObj = new XMLHttpRequest();
-ajaxObj.open("Get", 'scripts/datafile.txt', true);
+ajaxObj.open("Get", '/WebscriptSite/scripts/datafile.txt', true);
 ajaxObj.onreadystatechange = function()
 {if (ajaxObj.status === 200)
         if (ajaxObj.readyState === 4)
