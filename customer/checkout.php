@@ -6,7 +6,7 @@ This website was built by Marcus Cole
 <html>
     <head>
         <link rel="stylesheet" href="/WebscriptSite/css/shoppingCSS.css" type="text/css"/>
-        <link rel="icon" type="image/png" href="/assets/favicon.png">
+        <link rel="icon" type="image/png" href="/WebscriptSite/assets/favicon.png">
         <title>One Shop Shopping</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,8 +27,22 @@ This website was built by Marcus Cole
         </header>
         <section class="MainBasketSection">
         <h2 class="Subheading" id="numberInBasket">Your Basket</h2>
-        
-        
+        <!-- Shopping basket is generated here depending on number of items -->
+            <table class="BasketTable" id="tableOfItems">
+                <tr class='TitleRow'>
+                    <th>Item Image</th>
+                    <th>Item Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Remove Item?</th>
+                </tr>                
+            </table>
+            <p id="noItemMessage">
+                Sadly, You have no items in your basket. Why not add some?
+            </p>
+            <p id="totalCost">
+                £55
+            </p>
          </section>
         <footer>
             <section class="Copyright">

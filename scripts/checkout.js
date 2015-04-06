@@ -7,6 +7,7 @@
 var numberOfItems = 0;
 var items = [];
 var basket = document.getElementById("numberInBasket");
+var totalCost = 0;
 //log(document.cookie);
 initialise();
 
@@ -27,7 +28,47 @@ function initialise() {
         log("Storage Is Supported");
     }
     updateBasket();
-    //addToBasket("whey protien");
+    loadShoppingBasket();
+}
+
+// For every item in the shopping basket, append a new table row as a child, and
+// fill with information from the database. (AJAX?)
+function loadShoppingBasket(){
+    var table = document.getElementById("tableOfItems");
+    var whileLoop = 0;
+    
+    
+    document.getElementById("totalCost").innerHTML = "£" + totalCost;
+    
+    if (numberOfItems === 0) {
+        document.getElementById("tableOfItems").id= "hide";
+    }
+    
+    else {
+        document.getElementById("noItemMessage").id= "hide";
+    // While Loop: (Cycle through all basket elements)
+    while (whileLoop < numberOfItems) {
+    var newRow = table.insertRow(whileLoop + 1);
+    var cell1 = newRow.insertCell(0);
+    var cell2 = newRow.insertCell(1);
+    cell1.className = "BasketImage";
+    var cell3 = newRow.insertCell(2);
+    var cell4 = newRow.insertCell(3);
+    var cell5 = newRow.insertCell(4);
+    
+    var imageURL = "/WebscriptSite/images/item1.png";
+    var image = document.createElement("IMG");
+    image.src = imageURL;
+    
+    //cell1.innerHTML = "Item Image";
+    cell2.innerHTML = "Secateurs";
+    cell1.appendChild(image);
+    cell3.innerHTML = "£24.99";
+    cell4.innerHTML = "1";
+    cell5.innerHTML = "Remove";
+    whileLoop++;
+    }
+}
 }
 
 //Remove item from the shooping basket storage
@@ -40,8 +81,14 @@ function updateBasket() {
     numberOfItems = lengthOfBasket();
     if (numberOfItems === 1) basket.innerHTML = ("You Have " + numberOfItems + " Item In Your Basket");
     else basket.innerHTML = ("You Have " + numberOfItems + " Items In Your Basket");
+    //See whats in local storage;
     readStorage();
+    updateTotalCost();
 }
+function updateTotalCost() {
+    totalCost = numberOfItems * 24.99;
+}
+
 
 function onChangeInStorage(storageEvent) {
     updateBasket();
@@ -56,6 +103,7 @@ function clearStorage() {
     //remove storage
     localStorage.clear();
     updateBasket();
+    totalCost = 0;
 }
 
 function initLocalStorage() {

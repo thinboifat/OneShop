@@ -39,6 +39,42 @@ article {
     float: left;
 }
 
+//Table Css
+
+.BasketTable{
+    width: 100%;
+}
+
+tr, th, td {
+    text-align: center;
+    width: 20%;
+    padding-top: 2.5%;
+    margin-bottom: 2.5%;
+    font-family: Cabin;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td img {
+    width: 75%;
+}
+
+#noItemMessage {
+    text-align:center;
+}
+
+#hide {
+    display:none;
+}
+
+//End of Table CSS
+
+.FeaturedImage {
+    width: 100% !important;
+    height: auto;
+    
+}
+
 .banner {
     width: 50%;
     float: right;
@@ -224,6 +260,12 @@ width: 95%;
 margin-bottom: 2.5%;
 margin-left: 2.5%;
 margin-right: 2.5%;
+}
+
+#totalCost {
+    text-align: right;
+    padding-right: 8.25%;
+    font-size: 1.75em;
 }
 
 ul {
