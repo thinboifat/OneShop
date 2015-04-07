@@ -33,6 +33,7 @@ function initialise() {
 
 // For every item in the shopping basket, append a new table row as a child, and
 // fill with information from the database. (AJAX?)
+// Update the cost of these items, and show a message id no items are in basket.
 function loadShoppingBasket(){
     var table = document.getElementById("tableOfItems");
     var whileLoop = 0;

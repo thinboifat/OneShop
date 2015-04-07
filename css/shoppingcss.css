@@ -45,6 +45,10 @@ article {
     width: 100%;
 }
 
+.CMSItemList {
+    width: 100%;
+}
+
 tr, th, td {
     text-align: center;
     width: 20%;
@@ -67,10 +71,14 @@ td img {
     display:none;
 }
 
+#imageDropzone {
+    
+}
+
 //End of Table CSS
 
 .FeaturedImage {
-    width: 100% !important;
+    width: 25% !important;
     height: auto;
     
 }
@@ -213,6 +221,19 @@ li, ul {
     background: url(/WebscriptSite/assets/textures/paper_fibers.png) repeat 0 0;
     margin-left: 5%;
     float: left;
+}
+
+.MainCMSSection {
+    display: inline-block;
+    box-shadow: 0px 0px 12.5px black;
+    width: 80%;
+    background: url(/WebscriptSite/assets/textures/paper_fibers.png) repeat 0 0;
+    margin-left: 5%;
+    float: left;
+    padding-right: 5%;
+    padding-left: 5%;
+    padding-bottom: 2.5%;
+    padding-top: 2.5%;
 }
 
 #numberInBasket {
