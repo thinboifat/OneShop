@@ -135,6 +135,7 @@ function addToBasket(itemName) {
 function log(text) {
     console.log(text);
 }
+
 //Creates a cookie from entered data, and sets expiry.
 function createCookie(name, contents) {
     document.cookie = name + "=" + contents + "; " + "expires=Thu, 1 Jan 2020 00:00:00 UTC;";

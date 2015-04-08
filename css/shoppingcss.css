@@ -72,8 +72,17 @@ td img {
 }
 
 #imageDropzone {
-    
+    width: 15vw;
 }
+
+#imageDropzoneActive {
+  height: 10vh;
+  width: 15vw;
+  background-color: rosybrown;
+  border: black; 
+}
+
+
 
 //End of Table CSS
 

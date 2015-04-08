@@ -32,7 +32,7 @@ This website was built by Marcus Cole
     <head>
         <link rel="stylesheet" href="/WebscriptSite/css/shoppingCSS.css" type="text/css"/>
         <link rel="icon" type="image/png" href="/WebscriptSite/assets/favicon.png">
-        <title>One Shop Shopping</title>
+        <title>CMS - Add Items</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
@@ -47,7 +47,7 @@ This website was built by Marcus Cole
                     <li><a href="/WebscriptSite/cms/index.php">Home</a>
                 </ul>
             </nav>
-        <h1 class="Title" id="homepageTitle">CMS Manager</h1>
+        <h1 class="Title" id="homepageTitle">CMS - Add Items</h1>
         </header>
         <section class="MainCMSSection">
         <h2 class="Subheading" id="numberInCMS">Add Items</h2>
@@ -57,7 +57,7 @@ This website was built by Marcus Cole
             }
             ?>
         <!-- Shopping basket is generated here depending on number of items -->
-        <form action="">
+        <form id="addToDBForm" action="uploadImage.php" method="POST">
             <table class="CMSItemList" id="CMSAddItems">
                 <tr class='TitleRow'>
                     <th>Item Image</th>
@@ -69,12 +69,14 @@ This website was built by Marcus Cole
                 </tr>
                 <tr class="AddItemRow">
                     
-                    <th ondrop="" id="imageDropzone"><input type="text" name="Enter image URL, or drag here." required></th>
+                    <th >
+                        <input id="imageDropzone" type="file" name="photoUploads[]" multiple required>
+                        </th>
                     <th class="EditableItem"><input type="text" required></th>
                     <th class="EditableItem"><input type="text" required></th>
                     <th class="EditableItem"><input type="text" required></th>
                     <th class="EditableItem"><input type="reset"></th>
-                    <th class="EditableItem"><input type="submit"></th>
+                    <th id="submitToDB" class="EditableItem"><input type="submit"></th>
                     
                 </tr>
             </table>
@@ -93,4 +95,5 @@ This website was built by Marcus Cole
             </section>
         </footer>
     </body>
+    <script src="/WebscriptSite/scripts/addNewItems.js"> </script>
 </html>
