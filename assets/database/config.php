@@ -14,7 +14,9 @@ try {
     }
 catch(PDOException $e)
     {
-    echo $sql . "<br>" . $e->getMessage();
+    echo "Connected to Database";
     }
+    
+    //Create Initial Tables
     $oneShopDB = null;
 ?>
