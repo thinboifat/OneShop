@@ -57,7 +57,7 @@ This website was built by Marcus Cole
             }
             ?>
         <!-- Shopping basket is generated here depending on number of items -->
-        <form id="addToDBForm" action="uploadImage.php" method="POST">
+        <form id="addToDBForm" action="" method="POST">
             <table class="CMSItemList" id="CMSAddItems">
                 <tr class='TitleRow'>
                     <th>Item Image</th>

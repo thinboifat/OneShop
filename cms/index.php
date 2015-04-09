@@ -12,9 +12,11 @@ $database = false;
 //If Yes, continue to CMS screen
 
 //If No, create a database called content_management_system with config.php
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= "/WebscriptSite/assets/database/config.php";
-include_once($path);
+
+//Intergrate into config.php
+$buildDB = $_SERVER['DOCUMENT_ROOT'];
+$buildDB .= "/WebscriptSite/assets/database/initialdatabasetables.php";
+require_once($buildDB);
             
 //
    //Create tables, place in seperate file?
@@ -82,8 +84,11 @@ This website was built by Marcus Cole
                     <li> <a href="http://validator.w3.org/check?uri=referer">
                             HTML</a></li>
                             <li><a href="http://jigsaw.w3.org/css-validator/check/referer"> CSS </a></li>
+                            <li><a id="dummyData" href=""> Create Dummy Data </a></li>
+                            <li><a id="killdummyData" href=""> Remove Dummy Data </a></li>
                 </ul>
             </section>
         </footer>
     </body>
+    <script src="/WebscriptSite/scripts/databaseFunctions.js"> </script>
 </html>

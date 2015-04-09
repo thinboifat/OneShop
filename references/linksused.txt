@@ -2,3 +2,4 @@ http://html5doctor.com/drag-and-drop-to-server/ - Drag and Drop Upload
 http://www.html5rocks.com/en/tutorials/dnd/basics/ - Drag and Drop Upload
 http://blog.teamtreehouse.com/uploading-files-ajax - Uploadign files
 http://www.sitepoint.com/html5-file-drag-and-drop/  -Drag and Drop
+http://www.w3schools.com/php/php_mysql_create_table.asp - PHP PDO

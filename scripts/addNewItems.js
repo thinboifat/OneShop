@@ -57,16 +57,20 @@ function uploadImage() {
             var xhr = new XMLHttpRequest();
             
             // Open the connection.
-            xhr.open('POST', 'uploadImage.php', true);
+            xhr.open('POST', '/WebscriptSite/scripts/uploadImage.php', true);
+            xhr.setRequestHeader("X_FILENAME", file.name);
+            xhr.send(file);
+
             // Set up a handler for when the request finishes.
             xhr.onload = function () {
             if (xhr.status === 200) {
                 // File(s) uploaded.
-                uploadButton.innerHTML = 'Submit';
+                submitButton.innerHTML = 'Submit';
                 //Clear Tables
                 refreshAfterSuccess();
             } else {
                 alert('An error occurred!');
+                submitButton.innerHTML = 'Submit';
             }
             };
             // Send the Data.
@@ -126,14 +130,14 @@ function ParseFile(file) {
 		"</strong> bytes</p>"
 	);
         	// display an image
-	if (file.type.indexOf("image") == 0) {
+	if (file.type.indexOf("image") === 0) {
 		var reader = new FileReader();
 		reader.onload = function(e) {
 			Output(
 				"<p><strong>" + file.name + ":</strong><br />" +
 				'<img src="' + e.target.result + '" /></p>'
 			);
-		}
+		};
 		reader.readAsDataURL(file);
                 }
 }
