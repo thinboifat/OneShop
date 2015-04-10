@@ -13,10 +13,13 @@ $database = false;
 
 //If No, create a database called content_management_system with config.php
 
-//Intergrate into config.php
 $buildDB = $_SERVER['DOCUMENT_ROOT'];
 $buildDB .= "/WebscriptSite/assets/database/initialdatabasetables.php";
 require_once($buildDB);
+
+$addDummy = $_SERVER['DOCUMENT_ROOT'];
+$addDummy .= "/WebscriptSite/assets/database/createDummy.php";
+require_once($addDummy);
             
 //
    //Create tables, place in seperate file?
