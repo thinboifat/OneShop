@@ -16,12 +16,27 @@ try {
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
+    // Prepare SQl for insertion, and bind parameters
     
-    $sql = "INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
-    VALUES ('GARDENING', 'Secateurs', 24.99, 50, 'A sturdy pair of metal secateurs, perfect for a light trim', '/WebscriptSite/images/item1.png')";
-    // use exec() because no results are returned
-    $conn->exec($sql);
-    echo "Dummy data created successfully";
+    $statement = $conn->prepare("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
+        VALUES (:cat, :name, :price, :quantity, :desc, :image)");
+    $statement->bindParam(':cat', $cat);
+    $statement->bindParam(':name', $name);
+    $statement->bindParam(':price', $price);
+    $statement->bindParam(':quantity', $quantity);
+    $statement->bindParam(':desc', $desc);
+    $statement->bindParam(':image', $image);
+    
+    //Insert a sql row
+    $cat = 'DIY';
+    $name = 'HAMMER DRILL';
+    $price = '44.45';
+    $quantity = '50';
+    $desc = 'TEST DRILL';
+    $image = 'item 21.png';
+    $statement->execute();
+    
+       echo "Dummy data created successfully";
     }
 catch(PDOException $e)
     {

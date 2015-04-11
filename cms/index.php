@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-$database = false;
+$database = true;
 
 //Check if Database exists.
 
@@ -19,7 +19,7 @@ require_once($buildDB);
 
 $addDummy = $_SERVER['DOCUMENT_ROOT'];
 $addDummy .= "/WebscriptSite/assets/database/createDummy.php";
-require_once($addDummy);
+//require_once($addDummy);
             
 //
    //Create tables, place in seperate file?
@@ -66,12 +66,19 @@ This website was built by Marcus Cole
         <!-- Shopping basket is generated here depending on number of items -->
             <table class="CMSItemList" id="CMSTableOfItems">
                 <tr class='TitleRow'>
-                    <th>Item Image</th>
+                    <th>Item ID</th>
                     <th>Item Name</th>
+                    <th>Category</th>
                     <th>Price</th>
                     <th>Quantity Remaining</th>
+                    <th>Image URL</th>
                     <th>Remove Item?</th>
-                </tr>                
+                </tr>
+                <?php 
+                $loadTables = $_SERVER['DOCUMENT_ROOT'];
+                $loadTables .= "/WebscriptSite/assets/database/getRecords.php";
+                include_once($loadTables);
+                ?>
             </table>
         <?php 
         if ($database == false)  {
