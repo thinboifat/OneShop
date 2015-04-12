@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-$database = false;
+$database = true;
 
 //Check if Database exists.
 
@@ -21,6 +21,54 @@ $database = false;
     //
     //}
     //Confirm creation of table creation.
+
+//Form validation and submittion.
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+  $itemName = test_input($_POST["ItemName"]);
+  $itemCat = test_input($_POST["ItemCat"]);
+  $Price = test_price($_POST["Price"]);
+  $Quantity = test_quantity($_POST["Quantity"]);
+  $Description = test_input($_POST["Description"]);
+  $Featured = test_input($_POST["Featured"]);
+  $Photo = test_image($_POST["photoUploads"]);
+
+  $addToDB = $_SERVER['DOCUMENT_ROOT'];
+  $addToDB .= "/WebscriptSite/assets/database/newRecord.php";
+  echo $Featured;
+     
+  require_once($addToDB);
+  
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+function test_image($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+  function test_quantity($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+function test_price($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -57,24 +105,39 @@ This website was built by Marcus Cole
             }
             ?>
         <!-- Shopping basket is generated here depending on number of items -->
-        <form id="addToDBForm" action="" method="POST">
+        <form id="addToDBForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
             <table class="CMSItemList" id="CMSAddItems">
                 <tr class='TitleRow'>
                     <th>Item Image</th>
                     <th>Item Name</th>
+                    <th>Category</th>
                     <th>Price</th>
                     <th>Quantity On Hand</th>
+                    <th>Description</th>
+                    <th>Featured</th>
                     <th></th>
                     <th></th>
                 </tr>
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    //Display the data they submitted.
+                }
+                ?>
                 <tr class="AddItemRow">
-                    
                     <th >
-                        <input id="imageDropzone" type="file" name="photoUploads[]" multiple required>
+                        <input id="imageDropzone" type="file" name="photoUploads" >
                         </th>
-                    <th class="EditableItem"><input type="text" required></th>
-                    <th class="EditableItem"><input type="text" required></th>
-                    <th class="EditableItem"><input type="text" required></th>
+                    <th class="EditableItem"><input type="text" name="ItemName" required></th>
+                    <th class="EditableItem"><input type="text" name="ItemCat" required></th>
+                    <th class="EditableItem"><input type="text" name="Price" required></th>
+                    <th class="EditableItem"><input type="text" name="Quantity" required></th>
+                    <th class="EditableItem"><input type="text" name="Description" required></th>
+                    <th class="EditableItem">
+                        <select name="Featured">
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </th>
                     <th class="EditableItem"><input type="reset"></th>
                     <th id="submitToDB" class="EditableItem"><input type="submit"></th>
                     

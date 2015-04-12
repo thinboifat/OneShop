@@ -18,25 +18,28 @@ try {
     
     // Prepare SQl for insertion, and bind parameters
     
-    $statement = $conn->prepare("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
-        VALUES (:cat, :name, :price, :quantity, :desc, :image)");
+    $statement = $conn->prepare("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE, FEATURED)
+        VALUES (:cat, :name, :price, :quantity, :desc, :image, :featured)");
     $statement->bindParam(':cat', $cat);
     $statement->bindParam(':name', $name);
     $statement->bindParam(':price', $price);
     $statement->bindParam(':quantity', $quantity);
     $statement->bindParam(':desc', $desc);
     $statement->bindParam(':image', $image);
+    $statement->bindParam(':featured', $featured);
     
     //Insert a sql row
-    $cat = 'DIY';
-    $name = 'HAMMER DRILL';
-    $price = '44.45';
-    $quantity = '50';
-    $desc = 'TEST DRILL';
-    $image = 'item 21.png';
+    $cat = $itemCat;
+    $name = $itemName;
+    $price = $Price;
+    $quantity = $Quantity;
+    $desc = $Description;
+    $image = $Photo;
+    if ($Featured == 'Yes') {$featured = TRUE;}
+    else {$featured == FALSE;}
     $statement->execute();
     
-       echo "Dummy data created successfully";
+    echo $itemName + "Record Added Successfully.";
     }
 catch(PDOException $e)
     {
