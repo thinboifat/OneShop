@@ -10,7 +10,7 @@ class TableRows extends RecursiveIteratorIterator {
     }
 
     function current() {
-        return "<td>" . parent::current(). "</td>";
+        return "<td class='cell'>" . parent::current(). "</td>";
     }
 
     function beginChildren() { 
@@ -18,7 +18,7 @@ class TableRows extends RecursiveIteratorIterator {
     } 
 
     function endChildren() { 
-        echo "<td><button onclick=''>Remove</button></td> </tr>" . "\n";
+        echo "<td><button class='cell' onclick='removeItem(event)'>Remove</button></td> </tr>" . "\n";
     } 
 } 
 

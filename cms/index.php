@@ -5,7 +5,8 @@
  * and open the template in the editor.
  */
 
-$database = true;
+$database = TRUE;
+$search = FALSE;
 
 //Check if Database exists.
 
@@ -21,6 +22,7 @@ $addDummy = $_SERVER['DOCUMENT_ROOT'];
 $addDummy .= "/WebscriptSite/assets/database/createDummy.php";
 //require_once($addDummy);
             
+
 //
    //Create tables, place in seperate file?
     //try {
@@ -59,9 +61,14 @@ This website was built by Marcus Cole
         </header>
         <section class="MainCMSSection">        
         <h2 class="Subheading" id="numberInCMS">All Items</h2>
-            <form>
-                <input id="searchForItem" value="Search" type="text" required>
-                <input type="submit" required>
+            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                <select name="selection">
+                    <option value="itemID">Item ID</option>
+                    <option value="itemName">Item Name</option>
+                    <option value="itemCat">Item Category</option>
+                </select>
+                <input id="searchForItemID" onclick="clearIDText()" value="Search" type="text" name="search">
+                <input type="submit">
             </form>
         <!-- Shopping basket is generated here depending on number of items -->
             <table class="CMSItemList" id="CMSTableOfItems">
@@ -75,9 +82,31 @@ This website was built by Marcus Cole
                     <th>Remove Item?</th>
                 </tr>
                 <?php 
-                $loadTables = $_SERVER['DOCUMENT_ROOT'];
-                $loadTables .= "/WebscriptSite/assets/database/getRecords.php";
-                include_once($loadTables);
+                // If the user has searched for an item, show the item(s).
+                // Else, show all items.
+                function test_input($data) {
+                    $data = trim($data);
+                    $data = stripslashes($data);
+                    $data = htmlspecialchars($data);
+                    return $data;
+                }
+                
+                
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  
+                $search = test_input($_POST["search"]);
+                $selection = test_input($_POST["selection"]);
+
+                $addToDB = $_SERVER['DOCUMENT_ROOT'];
+                $addToDB .= "/WebscriptSite/assets/database/recordSearch.php";
+                require_once($addToDB);
+  
+                }
+                else {
+                    $loadTables = $_SERVER['DOCUMENT_ROOT'];
+                    $loadTables .= "/WebscriptSite/assets/database/getRecords.php";
+                    include_once($loadTables);
+                }
                 ?>
             </table>
         <?php 

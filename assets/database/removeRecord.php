@@ -9,7 +9,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "content_management_system";
-$toDelete = "1";
+$toDelete = $_POST["itemID"];
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -17,7 +17,7 @@ try {
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // sql to delete a record
-    $sql = "DELETE FROM PRODUCTS WHERE id=$toDelete";
+    $sql = "DELETE FROM PRODUCTS WHERE PRODUCT_ID=$toDelete";
 
     // use exec() because no results are returned
     $conn->exec($sql);
