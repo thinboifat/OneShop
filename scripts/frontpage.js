@@ -5,16 +5,11 @@
  */
 
 var ajaxObj = new XMLHttpRequest();
-ajaxObj.open("Get", '/WebscriptSite/scripts/datafile.txt', true);
+ajaxObj.open("Get", '/WebscriptSite/assets/database/getItems.php', true);
 ajaxObj.onreadystatechange = function()
 {if (ajaxObj.status === 200)
         if (ajaxObj.readyState === 4)
-    { document.getElementById("featured1").innerHTML = ajaxObj.responseText;
-      document.getElementById("featured2").innerHTML = ajaxObj.responseText;
-      document.getElementById("featured3").innerHTML = ajaxObj.responseText;
-      document.getElementById("featured4").innerHTML = ajaxObj.responseText;
-      document.getElementById("featured5").innerHTML = ajaxObj.responseText;
-      document.getElementById("featured6").innerHTML = ajaxObj.responseText;
+    { document.getElementById("featuredContainer").innerHTML = ajaxObj.responseText;
       console.log("Featured Items Pulled Successfully"); }
     };
 ajaxObj.send(null);

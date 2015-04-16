@@ -27,8 +27,10 @@ function initialise() {
     if (storage) {
         log("Storage Is Supported");
     }
+    
+    //loadShoppingBasket();
+    getShoppingBasket();
     updateBasket();
-    loadShoppingBasket();
 }
 
 // For every item in the shopping basket, append a new table row as a child, and
@@ -70,6 +72,19 @@ function loadShoppingBasket(){
     whileLoop++;
     }
 }
+}
+
+//New, replacement code to create a basket that loads items from cookies.
+function getShoppingBasket() {
+    var ajaxObj = new XMLHttpRequest();
+    ajaxObj.open("Get", '/WebscriptSite/assets/database/getBasket.php', true);
+    ajaxObj.onreadystatechange = function()
+    {if (ajaxObj.status === 200)
+        if (ajaxObj.readyState === 4)
+    { document.getElementById("basketSection").innerHTML = ajaxObj.responseText;
+      console.log("Basket Pulled Successfully"); }
+    };
+ajaxObj.send(null);
 }
 
 //Remove item from the shooping basket storage

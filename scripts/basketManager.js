@@ -127,7 +127,7 @@ function addToBasket(itemName) {
     cookie = cookie + itemName + ",";
     modifyCookie(cookie);
     updateBasket();
-    alert(itemName + " added to basket");
+    alert("Item added to basket");
     log (itemName + " added to basket");
 }
 

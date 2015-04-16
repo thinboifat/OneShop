@@ -29,10 +29,7 @@ This website was built by Marcus Cole
         </header>
         <section class="MainSection">
         <h2 class="Subheading">Featured Items</h2>
-            <div class="FeaturedContainer">
-                <div class="featuredItem" id="featured1"></div>
-                <div class="featuredItem" id="featured2"></div>
-                <div class="featuredItem" id="featured3"></div>
+            <div class="FeaturedContainer" id="featuredContainer">
             </div>
         <h2 class="Subheading">Popular This Week</h2>
             <div class="itemContainer">

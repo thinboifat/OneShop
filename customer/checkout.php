@@ -25,24 +25,8 @@ This website was built by Marcus Cole
             ?>
         <h1 class="Title" id="homepageTitle">Welcome To One-Shop!</h1>
         </header>
-        <section class="MainBasketSection">
+        <section class="MainBasketSection" id="basketSection">
         <h2 class="Subheading" id="numberInBasket">Your Basket</h2>
-        <!-- Shopping basket is generated here depending on number of items -->
-            <table class="BasketTable" id="tableOfItems">
-                <tr class='TitleRow'>
-                    <th>Item Image</th>
-                    <th>Item Name</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Remove Item?</th>
-                </tr>                
-            </table>
-            <p id="noItemMessage">
-                Sadly, You have no items in your basket. Why not add some?
-            </p>
-            <p id="totalCost">
-                £55
-            </p>
          </section>
         <footer>
             <section class="Copyright">
