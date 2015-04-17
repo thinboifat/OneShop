@@ -19,7 +19,7 @@ try {
         
         echo "
             <div class='featuredItem' id='featured'>
-            <img src='$row[0]' id=$row[5]] class='FeaturedImage' ondragstart='addBasketDrag(event)' alt='Dummy image for client to change'>
+            <img src='$row[0]' id=$row[5] class='FeaturedImage' ondragstart='addBasketDrag(event)' alt='Dummy image for client to change'>
             <p>$row[2]</p>
             <p>$row[4]</p>
             <p>£$row[1]</p>

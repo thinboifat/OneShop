@@ -12,8 +12,10 @@ var totalCost = 0;
 initialise();
 
 
+
 //Check for cookies, update basket if basketContents cookie exists, else create it.
 function initialise() {
+    
     //Check for any existing shopping basket cookie data. If found, update 
     //numberOfItems with the amount of items in basket, and basket[] with items.
     if (document.cookie.indexOf("basketContents") >= 0) {
@@ -27,10 +29,11 @@ function initialise() {
     if (storage) {
         log("Storage Is Supported");
     }
-    
-    //loadShoppingBasket();
-    getShoppingBasket();
     updateBasket();
+    console.log(localStorage);
+    //loadShoppingBasket();
+    if (localStorage.length !== 0) getShoppingBasket();
+    
 }
 
 // For every item in the shopping basket, append a new table row as a child, and
@@ -96,19 +99,18 @@ function getShoppingBasket() {
 //Get items from local storage, and add them to an array of itemIDs to be posted
 //to php by getSHoppingBasket(). Adds the nessessary grammar for sql to read.
 function getItems() {
-    var finished = false;
+    var itemsFound = 0;
     var itemList = "item=(";
     var i = 1;
     
-    while (finished !== true) {
-        console.log("test");
+    while (itemsFound < numberOfItems) {
         var currentItem = localStorage.getItem("item"+i);
-        console.log(currentItem);
-        if (currentItem === null) {finished = true;}
+        if (currentItem === null) {i++;}
         else {
             if (i === 1) {{itemList = itemList + currentItem;}}
             else {itemList = itemList + "," + currentItem;}
             i++;
+            itemsFound++;
         }
     }
     itemList = itemList + ")";
@@ -124,15 +126,11 @@ function removeFromStorage(itemToRemove) {
 
 //Update the shopping basket to reflect the items the user has added to basket.
 function updateBasket() {
-    numberOfItems = lengthOfBasket();
+    numberOfItems = localStorage.length;
     if (numberOfItems === 1) basket.innerHTML = ("You Have " + numberOfItems + " Item In Your Basket");
     else basket.innerHTML = ("You Have " + numberOfItems + " Items In Your Basket");
     //See whats in local storage;
     readStorage();
-    updateTotalCost();
-}
-function updateTotalCost() {
-    totalCost = numberOfItems * 24.99;
 }
 
 
@@ -209,8 +207,32 @@ function readStorage() {
     if (numberOfItems === 0) return;
     i = 1;
     while (i <= numberOfItems) {
-        //log(localStorage.getItem("item"+String(i)));
+        console.log(localStorage.getItem("item"+String(i)));
         i++;
     }
-    //log(localStorage.getItem("item"+String(1)));
+    console.log(localStorage.getItem("item"+String(1)));
+}
+
+//Gets the item ID from the removed button, and seaches through localstorage for
+//the key, then removes the key-value pair from local storage.
+function removeItem(event) {
+    event.preventDefault();
+    var itemID = event.target.id;
+    var sure = confirm("Are you sure you want to delete item#" + itemID +"?");
+    log(itemID);
+    if (sure) {
+        
+        for(var i=0, len=localStorage.length; i<len; i++) {
+        var key = localStorage.key(i);
+        var value = localStorage[key];
+        if(value === (itemID)) {
+        console.log(key);
+        removeFromStorage(key);
+        location.reload();
+        }
+        }
+        
+        
+    }
+    
 }

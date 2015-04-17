@@ -36,12 +36,6 @@ function allowImageDrop(event) {
     event.preventDefault();
 }
 
-function addTestItems() {
-    addToBasket("grapes");
-    addToBasket("apples");
-    addToBasket("pears");
-}
-
 function addBasketDrag(event) {
     event.dataTransfer.setData("text", event.target.id);
 }
@@ -75,7 +69,7 @@ function removeFromStorage(itemToRemove) {
 
 //Update the shopping basket to reflect the items the user has added to basket.
 function updateBasket() {
-    numberOfItems = lengthOfBasket();
+    numberOfItems = localStorage.length;
     basket.innerHTML = numberOfItems;
     readStorage();
 }

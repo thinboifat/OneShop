@@ -19,17 +19,8 @@ as fetched from the database.
 //Get the posted data
 $query = $_POST["item"];
 
-$currentItem = "(5,6,7)";
-$items = [3,4,6,7]; //$_POST[]
-$toRetrieve = "(";
+//Sort out quantity!!
 
-//For each item in basket, add to a bracketed list for the SQL to select.
-foreach ($items as &$item) {
-   $toRetrieve .= "$item,";
-}
-substr_replace($toRetrieve ,"",-2);
-$toRetrieve .= "0)"; 
-        
 $cost = 0;
 $quantity= 1;
 
@@ -46,6 +37,8 @@ try {
     $statement->execute();
     $currentRow = $statement->fetchAll();
     
+    //For each returned result, display in a table row.
+    $i = 0;
     foreach ($currentRow as &$row) {
         $cost = $cost+$row[1];
         echo "
@@ -53,11 +46,11 @@ try {
             
             
                 <tr class='TitleRow'>
-                    <th><img src='$row[0]' id=$row[5]] class='FeaturedImage' ondragstart='addBasketDrag(event)' alt='Dummy image for client to change'></th>
+                    <th><img src='$row[0]' id=$row[5] class='FeaturedImage' alt='Dummy image for client to change'></th>
                     <th>$row[2]</th>
                     <th>£$row[1]</th>
                     <th>$quantity</th>
-                    <th>Remove</th>
+                    <th><button id=$row[5] class='cell' onclick='removeItem(event)'>Remove</button></th>
                 </tr>
             ";
     
