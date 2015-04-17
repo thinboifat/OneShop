@@ -76,15 +76,45 @@ function loadShoppingBasket(){
 
 //New, replacement code to create a basket that loads items from cookies.
 function getShoppingBasket() {
+    var inBasket = getItems();
+    console.log(inBasket);
+    
+    var basketContents = inBasket;
     var ajaxObj = new XMLHttpRequest();
-    ajaxObj.open("Get", '/WebscriptSite/assets/database/getBasket.php', true);
+    
     ajaxObj.onreadystatechange = function()
     {if (ajaxObj.status === 200)
-        if (ajaxObj.readyState === 4)
-    { document.getElementById("basketSection").innerHTML = ajaxObj.responseText;
+        if (ajaxObj.readyState === 4) {
+     document.getElementById("basketSection").innerHTML = ajaxObj.responseText;
       console.log("Basket Pulled Successfully"); }
     };
-ajaxObj.send(null);
+    ajaxObj.open("POST", '/WebscriptSite/assets/database/getBasket.php', true);
+    ajaxObj.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    ajaxObj.send(basketContents);
+}
+
+//Get items from local storage, and add them to an array of itemIDs to be posted
+//to php by getSHoppingBasket(). Adds the nessessary grammar for sql to read.
+function getItems() {
+    var finished = false;
+    var itemList = "item=(";
+    var i = 1;
+    
+    while (finished !== true) {
+        console.log("test");
+        var currentItem = localStorage.getItem("item"+i);
+        console.log(currentItem);
+        if (currentItem === null) {finished = true;}
+        else {
+            if (i === 1) {{itemList = itemList + currentItem;}}
+            else {itemList = itemList + "," + currentItem;}
+            i++;
+        }
+    }
+    itemList = itemList + ")";
+    toSend = [itemList];
+    return toSend;
+    log(localStorage.getItem("item1"));
 }
 
 //Remove item from the shooping basket storage
@@ -126,7 +156,7 @@ function initLocalStorage() {
     if(typeof(Storage) !== "undefined") {
     return true;    
     }
-    else { log("noSystemStorage");
+    else { //log("noSystemStorage");
         return false;
     }
 }
@@ -179,7 +209,7 @@ function readStorage() {
     if (numberOfItems === 0) return;
     i = 1;
     while (i <= numberOfItems) {
-        log(localStorage.getItem("item"+String(i)));
+        //log(localStorage.getItem("item"+String(i)));
         i++;
     }
     //log(localStorage.getItem("item"+String(1)));

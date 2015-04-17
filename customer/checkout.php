@@ -6,7 +6,7 @@ This website was built by Marcus Cole
 <html>
     <head>
         <link rel="stylesheet" href="/WebscriptSite/css/shoppingCSS.css" type="text/css"/>
-        <link rel="icon" type="image/png" href="/WebscriptSite/assets/favicon.png">
+        <link rel="icon" type="image/png" href="/WebscriptSite/assets/favicon.ico">
         <title>One Shop Shopping</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">

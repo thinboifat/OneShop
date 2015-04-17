@@ -1,3 +1,9 @@
+
+<!--
+Provides the table heading, then fills the table with items from the basket,
+as fetched from the database.
+-->
+
 <h2 class='Subheading' id='numberInBasket'>Your Basket</h2>
             <table class='BasketTable' id='tableOfItems'>
                 <tr class='TitleRow'>
@@ -9,6 +15,9 @@
                 </tr>
 
 <?php
+
+//Get the posted data
+$query = $_POST["item"];
 
 $currentItem = "(5,6,7)";
 $items = [3,4,6,7]; //$_POST[]
@@ -33,7 +42,7 @@ try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $statement = $conn->prepare("SELECT PRODUCT_IMAGE, PRICE, PRODUCT_NAME, QUANTITY, PRODUCT_DESC, PRODUCT_ID FROM PRODUCTS WHERE PRODUCT_ID IN $toRetrieve");
+    $statement = $conn->prepare("SELECT PRODUCT_IMAGE, PRICE, PRODUCT_NAME, QUANTITY, PRODUCT_DESC, PRODUCT_ID FROM PRODUCTS WHERE PRODUCT_ID IN $query");
     $statement->execute();
     $currentRow = $statement->fetchAll();
     
