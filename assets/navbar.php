@@ -10,6 +10,11 @@ echo '<div href="index.html"> <img class="logo" src="/WebscriptSite/images/logo.
                 <li><a href="/WebscriptSite/customer/lighting.php">Lighting</a></li>
                 <li><a href="/WebscriptSite/customer/index.php">Home</a>
             </ul>
-        </nav>';
+        </nav>
+        <h1 class="Title" id="homepageTitle">Welcome To One-Shop!</h1>
+        <form action="/WebscriptSite/customer/customerSearch.php" method="GET">
+            <input id="searchForName" onclick="clearNameText()" value="Search" type="text" name="search">
+            </form>';
+            
 
 ?>

@@ -25,7 +25,6 @@ This website was built by Marcus Cole
                 $path .= "/WebscriptSite/assets/navbar.php";
                 include_once($path);
             ?>
-        <h1 class="Title" id="homepageTitle">Welcome To One-Shop!</h1>
         </header>
         <section class="MainSection">
         <h2 id="itemCat" class="Subheading">DIY</h2>

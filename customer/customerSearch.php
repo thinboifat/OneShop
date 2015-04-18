@@ -15,7 +15,6 @@ This website was built by Marcus Cole
         <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css">
         
-        
 
     </head>
     <body>
@@ -25,10 +24,52 @@ This website was built by Marcus Cole
                 $path .= "/WebscriptSite/assets/navbar.php";
                 include_once($path);
             ?>
+        
         </header>
         <section class="MainSection">
-        <h2 id="itemCat" class="Subheading">Bathroom</h2>
+        <h2 class="Subheading">Your search for '<?php $term =$_GET['search']; echo $term; ?>' returned these results:</h2>
             <div class="FeaturedContainer" id="featuredContainer">
+
+
+
+<?php
+$search = $_GET['search'];
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "content_management_system";
+
+try {
+  $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $statement = $conn->prepare("SELECT PRODUCT_IMAGE, PRICE, PRODUCT_NAME, QUANTITY, PRODUCT_DESC, PRODUCT_ID FROM PRODUCTS WHERE PRODUCT_NAME LIKE '%$search%'");
+    $statement->execute(array(':name' => $_GET["search"]));
+    $currentRow = $statement->fetchAll();
+    
+    foreach ($currentRow as &$row) {
+        
+        echo "
+            <div class='featuredItem' id='featured'>
+            <img src='$row[0]' id=$row[5] class='FeaturedImage' ondragstart='addBasketDrag(event)' alt='Dummy image for client to change'>
+            <p>$row[2]</p>
+            <p>$row[4]</p>
+            <p>£$row[1]</p>
+                <button id='$row[5]' class='addToBasket' onclick='addBasketClick(event)' onclicktype='button'>Add To Basket</button>
+            </div>
+            ";
+    
+    }
+    
+    
+} catch (Exception $ex) {
+ // roll back the transaction if something failed
+    $conn->rollback();
+    echo "Error: " . $e->getMessage();
+}
+
+?>
+
             </div>
         </section>
         <article ondrop="addBasketDrop(event)" ondragover="allowImageDrop(event)" id="ShoppingBasket">
@@ -54,6 +95,5 @@ This website was built by Marcus Cole
             </section>
         </footer>
     </body>
-    <script src="/WebscriptSite/scripts/categoryPage.js"> </script>
     <script src="/WebscriptSite/scripts/basketManager.js"> </script>
-</html>
+</html>                

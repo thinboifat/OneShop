@@ -339,6 +339,14 @@ border: thin solid #0158c2;
 box-shadow: 0px 0px 10px black;
 }
 
+#searchForName {
+  float: right;
+  width: 15%;
+  display: inline-block;
+  margin-top: 1.5%;
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  font-size: 1.25em;
+}
 
 
 

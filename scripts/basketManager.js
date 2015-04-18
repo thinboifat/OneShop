@@ -28,8 +28,6 @@ function initialise() {
     clearButton = document.getElementById("clearBasket");
     clearButton.addEventListener("click", clearStorage, false);
     updateBasket();
-    addToBasketListeners();
-    //addToBasket("whey protien");
 }
 
 function allowImageDrop(event) {
@@ -42,6 +40,10 @@ function addBasketDrag(event) {
 
 function addBasketClick(event) {
     addToBasket(event.target.id);
+}
+
+function clearNameText(){
+    document.getElementById("searchForName").value="";
 }
 
 //Provides the behavior for dropping over the basket.
@@ -58,7 +60,7 @@ function addBasketDrop(event) {
 function addToStorage(itemToAdd) {
     basketposition = numberOfItems+1;
     itemString = String("item" + basketposition);
-    log(itemString);
+    console.log(itemString);
     localStorage.setItem (itemString, itemToAdd);
 }
 
@@ -80,6 +82,7 @@ function onChangeInStorage(storageEvent) {
 }
 
 //Add event listeners to every add to basket button on the page.
+//Unused Code.
 function addToBasketListeners() {
     var buttons = document.getElementsByClassName("addToBasket");
     //log(buttons);

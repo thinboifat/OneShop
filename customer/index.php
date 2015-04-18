@@ -25,19 +25,12 @@ This website was built by Marcus Cole
                 $path .= "/WebscriptSite/assets/navbar.php";
                 include_once($path);
             ?>
-        <h1 class="Title" id="homepageTitle">Welcome To One-Shop!</h1>
+        
         </header>
         <section class="MainSection">
         <h2 class="Subheading">Featured Items</h2>
             <div class="FeaturedContainer" id="featuredContainer">
             </div>
-        <h2 class="Subheading">Popular This Week</h2>
-            <div class="itemContainer">
-                <div class="itemContainer" id="item1"></div>
-                <div class="featuredItem" id="featured4"></div>
-                <div class="featuredItem" id="featured5"></div>
-                <div class="featuredItem" id="featured6"></div>
-                </div>
         </section>
         <article ondrop="addBasketDrop(event)" ondragover="allowImageDrop(event)" id="ShoppingBasket">
             <h2 class="ProductBar" id="basket">Basket</h2>
