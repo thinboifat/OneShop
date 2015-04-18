@@ -28,7 +28,7 @@ This website was built by Marcus Cole
         <h1 class="Title" id="homepageTitle">Welcome To One-Shop!</h1>
         </header>
         <section class="MainSection">
-        <h2 id="itemCat" class="Subheading">Lighting</h2>
+        <h2 id="itemCat" class="Subheading">Bathroom</h2>
             <div class="FeaturedContainer" id="featuredContainer">
             </div>
         </section>

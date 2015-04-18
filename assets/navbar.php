@@ -4,7 +4,7 @@ echo '<div href="index.html"> <img class="logo" src="/WebscriptSite/images/logo.
     <nav class="topMenu">
             <ul>
                 <li><a href="/WebscriptSite/customer/checkout.php">Checkout</a></li>
-                <li><a href="/WebscriptSite/customer/electricals.php">Electricals</a></li>
+                <li><a href="/WebscriptSite/customer/bathroom.php">Bathroom</a></li>
                 <li><a href="/WebscriptSite/customer/gardening.php">Gardening</a></li>
                 <li><a href="/WebscriptSite/customer/diy.php">DIY</a></li>
                 <li><a href="/WebscriptSite/customer/lighting.php">Lighting</a></li>

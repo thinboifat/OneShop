@@ -5,8 +5,8 @@ This website was built by Marcus Cole
 
 <html>
     <head>
-        <link rel="stylesheet" href="css/shoppingCSS.css" type="text/css"/>
-        <link rel="icon" type="image/png" href="/assets/favicon.png">
+        <link rel="stylesheet" href="/WebscriptSite/css/shoppingCSS.css" type="text/css"/>
+        <link rel="icon" type="image/png" href="/WebscriptSite/assets/favicon.ico">
         <title>One Shop Shopping</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,29 +14,36 @@ This website was built by Marcus Cole
         <meta name="keywords" content="one shop shopping" />
         <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
         <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css">
-        <script src="scripts/frontpage.js"> </script>
+        
+        
 
     </head>
     <body>
         <header class="TopContainer">
-        <?php include('assets/navbar.php');?>
-        <h1 class="Title" id="homepageTitle">DIY</h1>
+            <?php 
+                $path = $_SERVER['DOCUMENT_ROOT'];
+                $path .= "/WebscriptSite/assets/navbar.php";
+                include_once($path);
+            ?>
+        <h1 class="Title" id="homepageTitle">Welcome To One-Shop!</h1>
         </header>
         <section class="MainSection">
-        <h2 class="Subheading">Featured Items</h2>
-            <div class="FeaturedContainer">
-                <div class="featuredItem" id="featured1"></div>
-                <div class="featuredItem" id="featured2"></div>
-                <div class="featuredItem" id="featured3"></div>
+        <h2 id="itemCat" class="Subheading">DIY</h2>
+            <div class="FeaturedContainer" id="featuredContainer">
             </div>
-        <h2 class="Subheading">Popular This Week</h2>
-            <div class="itemContainer">
-                <div class="itemContainer" id="item1"></div>
-                <div class="featuredItem" id="featured4"></div>
-                <div class="featuredItem" id="featured5"></div>
-                <div class="featuredItem" id="featured6"></div>
-                </div>        
         </section>
+        <article ondrop="addBasketDrop(event)" ondragover="allowImageDrop(event)" id="ShoppingBasket">
+            <h2 class="ProductBar" id="basket">Basket</h2>
+            <div class="Container" id="basketContainer">
+            <h3 class="BasketText" id="numberInBasket">Javascript must be enabled!</h3>
+            <h3 class="BasketText" id="numberInBasket">Items</h3>
+            <button id="clearBasket">Clear Basket</button>
+            </div>
+        </article>
+        <article>
+            <h2 class="ProductBar" id="recentItems">Recently Viewed Items</h2>
+            <p id="recentItemList">Items appear here</p>
+        </article>
         <footer>
             <section class="Copyright">
                 This site was developed by Marcus Cole.
@@ -48,4 +55,6 @@ This website was built by Marcus Cole
             </section>
         </footer>
     </body>
+    <script src="/WebscriptSite/scripts/categoryPage.js"> </script>
+    <script src="/WebscriptSite/scripts/basketManager.js"> </script>
 </html>

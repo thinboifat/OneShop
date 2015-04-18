@@ -1,8 +1,0 @@
-{
-    "productID": 1,
-    "name": "Garden Shears",
-    "price": 44.50,
-    "image": "assets/database/images/shears.jpg",
-    "description": "These are some fine shears, all made with solid stainless steel",
-    "quantity": "50"
-}

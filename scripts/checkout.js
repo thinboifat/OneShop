@@ -81,7 +81,6 @@ function loadShoppingBasket(){
 function getShoppingBasket() {
     var inBasket = getItems();
     console.log(inBasket);
-    
     var basketContents = inBasket;
     var ajaxObj = new XMLHttpRequest();
     
@@ -114,6 +113,8 @@ function getItems() {
         }
     }
     itemList = itemList + ")";
+    //Check that the string does not contain a comma before the first number.
+    itemList = itemList.replace('(,', '(');
     toSend = [itemList];
     return toSend;
     log(localStorage.getItem("item1"));
