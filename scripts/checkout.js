@@ -237,3 +237,7 @@ function removeItem(event) {
     }
     
 }
+
+function clearNameText(){
+    document.getElementById("searchForName").value="";
+}
