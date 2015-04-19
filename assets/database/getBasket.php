@@ -23,6 +23,7 @@ $query = $_POST["item"];
 
 $cost = 0;
 $quantity= 1;
+$numberOfItems = 0;
 
 $servername = "localhost";
 $username = "root";
@@ -40,6 +41,13 @@ try {
     //For each returned result, display in a table row.
     $i = 0;
     foreach ($currentRow as &$row) {
+        $i++;
+        $itemNamePosition = "name";
+        $itemNamePosition .= $i;
+        $itemPricePosition = "price";
+        $itemPricePosition .= $i;
+        $itemPriceQuantity = "quantity";
+        $itemPriceQuantity .= $i;
         $cost = $cost+$row[1];
         echo "
             
@@ -47,9 +55,9 @@ try {
             
                 <tr class='TitleRow'>
                     <th><img src='$row[0]' id=$row[5] class='FeaturedImage' alt='Dummy image for client to change'></th>
-                    <th>$row[2]</th>
-                    <th>£$row[1]</th>
-                    <th>$quantity</th>
+                    <th name='$row[2]' id='$itemNamePosition'>$row[2]</th>
+                    <th name='$row[1]' id='$itemPricePosition'>£$row[1]</th>
+                    <th name='$quantity' id='$itemPriceQuantity' >$quantity</th>
                     <th><button id=$row[5] class='cell' onclick='removeItem(event)'>Remove</button></th>
                 </tr>
             ";
@@ -62,11 +70,29 @@ try {
     $conn->rollback();
     echo "Error: " . $e->getMessage();
 }
-
+//Now Present the rest of the checkout area, with the price, and order submition.
 echo "   
             </table>
-            <p id='totalCost'>
+            <p name='$cost' id='totalCost'>
                 Total: £$cost
-            </p>";
+            </p>
+            
+            <div id='userDetails' class='UserDetails'>
+            
+            <p class='BasicText'>Enter the name and address you want to send the items to.</p>
+            <p class='BasicText'>Name Of Recipient</p>
+            <input label='Recipient' name='recipient' id='recipient' class='addressForm' required>
+            <p class='BasicText'>Address Line 1</p>
+            <input name='lineOne' id='lineOne' class='addressForm' required>
+            <p class='BasicText'>Address Line 2</p>
+            <input name='lineTwo' id='lineTwo' class='addressForm'>
+            <p class='BasicText'>County</p>
+            <input name='county' id='county' class='addressForm' required>
+            <p class='BasicText'>Post Code</p>
+            <input name='postCode' id='PostCode' class='addressForm' required>
+            <p></p>
+            <button type='submit' id='submitOrder'>Submit Order</button>
+            </div>
+        ";
 
 ?>

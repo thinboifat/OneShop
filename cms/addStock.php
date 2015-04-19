@@ -12,31 +12,21 @@ $database = true;
 //If Yes, continue to CMS screen
 
 //If No, create a database called content_management_system with config.php
-          
-//
-   //Create tables, place in seperate file?
-    //try {
-    //include_once 'initialdatabasetables.php';
-    //} catch (Exception $ex) {
-    //
-    //}
-    //Confirm creation of table creation.
+
 
 //Form validation and submittion.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
-  $itemName = test_input($_POST["ItemName"]);
-  $itemCat = test_input($_POST["ItemCat"]);
-  $Price = test_price($_POST["Price"]);
-  $Quantity = test_quantity($_POST["Quantity"]);
-  $Description = test_input($_POST["Description"]);
-  $Featured = test_input($_POST["Featured"]);
-  $Photo = test_image($_POST["photoUploads"]);
 
+  $oldData = test_input($_POST["itemID"]);
+  $newData = test_quantity($_POST["quantity"]);
+  
+  //echo $itemID;
+  //echo $Quantity;
+  
   $addToDB = $_SERVER['DOCUMENT_ROOT'];
-  $addToDB .= "/WebscriptSite/assets/database/newRecord.php";
-  echo $Featured;
-     
+  $addToDB .= "/WebscriptSite/assets/database/editRecord.php";
+       
   require_once($addToDB);
   
 }
@@ -48,26 +38,12 @@ function test_input($data) {
   return $data;
 }
 
-function test_image($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
   function test_quantity($data) {
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
 }
-
-function test_price($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
-
 
 ?>
 
@@ -109,13 +85,8 @@ This website was built by Marcus Cole
         <form id="addToDBForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
             <table class="CMSItemList" id="CMSAddItems">
                 <tr class='TitleRow'>
-                    <th>Item Image</th>
-                    <th>Item Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
+                    <th>Item ID</th>
                     <th>Quantity On Hand</th>
-                    <th>Description</th>
-                    <th>Featured</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -125,20 +96,9 @@ This website was built by Marcus Cole
                 }
                 ?>
                 <tr class="AddItemRow">
-                    <th >
-                        <input id="imageDropzone" type="file" name="photoUploads" >
-                        </th>
-                    <th class="EditableItem"><input type="text" name="ItemName" required></th>
-                    <th class="EditableItem"><input type="text" name="ItemCat" required></th>
-                    <th class="EditableItem"><input type="text" name="Price" required></th>
-                    <th class="EditableItem"><input type="text" name="Quantity" required></th>
-                    <th class="EditableItem"><input type="text" name="Description" required></th>
-                    <th class="EditableItem">
-                        <select name="Featured">
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </th>
+                    <th class="EditableItem"><input type="text" name="itemID" required></th>
+                    <th class="EditableItem"><input type="text" name="quantity" required></th>
+                    
                     <th class="EditableItem"><input type="reset"></th>
                     <th id="submitToDB" class="EditableItem"><input type="submit"></th>
                     
@@ -159,5 +119,4 @@ This website was built by Marcus Cole
             </section>
         </footer>
     </body>
-    <script src="/WebscriptSite/scripts/addNewItems.js"> </script>
 </html>

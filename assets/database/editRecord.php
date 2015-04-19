@@ -11,18 +11,16 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "content_management_system";
-$table = "PRODUCTS";
-$whereColumn = "PRODUCT_NAME";
-$setColumn = "PRODUCT_NAME";
-$oldData = "'Silver Mixer Tap'";
-$newData = "'Black Mixer Tap'";
+
+$oldData = $_POST["itemID"];
+$newData = $_POST["quantity"];
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "UPDATE $table SET $setColumn=$newData WHERE $whereColumn=$oldData";
+    $sql = "UPDATE PRODUCTS SET QUANTITY=$newData WHERE PRODUCT_ID=$oldData";
 
     // Prepare statement
     $stmt = $conn->prepare($sql);

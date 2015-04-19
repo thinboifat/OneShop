@@ -82,12 +82,15 @@ function getShoppingBasket() {
     var inBasket = getItems();
     console.log(inBasket);
     var basketContents = inBasket;
+    items = basketContents;
     var ajaxObj = new XMLHttpRequest();
     
     ajaxObj.onreadystatechange = function()
     {if (ajaxObj.status === 200)
         if (ajaxObj.readyState === 4) {
      document.getElementById("basketSection").innerHTML = ajaxObj.responseText;
+     document.getElementById("submitOrder").addEventListener('click', createOrder, true);
+     //createHiddenForms();
       console.log("Basket Pulled Successfully"); }
     };
     ajaxObj.open("POST", '/WebscriptSite/assets/database/getBasket.php', true);
@@ -110,6 +113,7 @@ function getItems() {
             else {itemList = itemList + "," + currentItem;}
             i++;
             itemsFound++;
+            items.push(currentItem);
         }
     }
     itemList = itemList + ")";
@@ -240,4 +244,38 @@ function removeItem(event) {
 
 function clearNameText(){
     document.getElementById("searchForName").value="";
+}
+
+function createOrder() {
+    var order = [];
+    var itemNumber = 1;
+    var recip = document.getElementById("recipient").value;
+    var lineOne = document.getElementById("lineOne").value;
+    var lineTwo = document.getElementById("lineTwo").value;
+    var county = document.getElementById("county").value;  
+    var postcode = document.getElementById("PostCode").value;
+    var item1name = document.getElementById("name1").innerHTML;
+    var item1price = document.getElementById("price1").innerHTML;
+    item1price = item1price.replace("£", "");
+    var item1quantity = document.getElementById("quantity1").innerHTML;
+    console.log(item1name);
+    
+    if (lineTwo !== "") {var address = lineOne + "," + lineTwo + "," + county + "," + postcode;}
+    else {var address = lineOne + "," + county + "," + postcode;}
+    order.push("item" + itemNumber + "=" +item1name, "item1price=" + item1price, "item1quantity=" + item1quantity, "recipient=" +recip ,"address=" + address);
+    log(order);
+    
+    var ajaxObj = new XMLHttpRequest();
+    
+    ajaxObj.onreadystatechange = function()
+    {if (ajaxObj.status === 200)
+        if (ajaxObj.readyState === 4) {
+      
+      console.log(ajaxObj.responseText);
+      console.log("Order Sent"); }
+    };
+    ajaxObj.open("POST", '/WebscriptSite/customer/orderConfirm.php', true);
+    ajaxObj.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    ajaxObj.send(order);
+    
 }

@@ -26,7 +26,7 @@ This website was built by Marcus Cole
         </header>
         <section class="MainBasketSection" id="basketSection">
         <h2 class="Subheading" id="numberInBasket">Your Basket</h2>
-         </section>
+        </section>
         <footer>
             <section class="Copyright">
                 This site was developed by Marcus Cole.
@@ -35,6 +35,11 @@ This website was built by Marcus Cole
                             HTML</a></li>
                             <li><a href="http://jigsaw.w3.org/css-validator/check/referer"> CSS </a></li>
                 </ul>
+                <?php 
+                $path = $_SERVER['DOCUMENT_ROOT'];
+                $path .= "/WebscriptSite/customer/orderConfirm.php";
+                //include_once($path);
+            ?>
             </section>
         </footer>
     </body>

@@ -21,8 +21,8 @@ try {
     //SQL
 
     //Gardening Dummy
-    $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
-    VALUES ('GARDENING', 'Secateurs', 24.99, 50, 'A sturdy pair of metal secateurs, perfect for a light trim', '/WebscriptSite/images/item1.png')");
+    $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE, FEATURED)
+    VALUES ('GARDENING', 'Secateurs', 24.99, 50, 'A sturdy pair of metal secateurs, perfect for a light trim', '/WebscriptSite/images/item1.png', TRUE)");
     
     $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
     VALUES ('GARDENING', '2m Hose Reel', 14.99, 5, '2m of quality PVC hose reel, with standard UK hose fittings included.', '/WebscriptSite/images/item2.png')");
@@ -44,8 +44,8 @@ try {
     $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
     VALUES ('LIGHTING', '2 Bulb Desk Lamp (Brown)', 17.50, 50, 'A metal desk lamp, with 2 dimmable bayonet bulbs (included).', '/WebscriptSite/images/item7.png')");
     
-    $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
-    VALUES ('LIGHTING', '2 Bulb Desk Lamp (Red)', 24.99, 50, 'A metal desk lamp, with 2 dimmable bayonet bulbs (included).', '/WebscriptSite/images/item8.png')");
+    $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE, FEATURED)
+    VALUES ('LIGHTING', '2 Bulb Desk Lamp (Red)', 24.99, 50, 'A metal desk lamp, with 2 dimmable bayonet bulbs.', '/WebscriptSite/images/item8.png', TRUE)");
     
     $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
     VALUES ('LIGHTING', 'Bayonet 20w Bulb', 4.99, 50, 'A power saving 20w bulb (not dimmable)', '/WebscriptSite/images/item9.png')");
@@ -78,14 +78,51 @@ try {
     $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
     VALUES ('BATHROOM', 'Aqualisa Power Shower Suite', 424.99, 50, 'Refresh yourself with this shower suite. Requires high water pressure.', '/WebscriptSite/images/item17.png')");
     
-    $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
-    VALUES ('BATHROOM', 'Gold Mixer Tap', 9.99, 50, 'Attractive, yet they provide an efficient flow.', '/WebscriptSite/images/item18.png')");
+    $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE, FEATURED)
+    VALUES ('BATHROOM', 'Gold Mixer Tap', 9.99, 50, 'Attractive mixer taps, yet they provide an efficient flow.', '/WebscriptSite/images/item18.png', TRUE)");
     
     $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
     VALUES ('BATHROOM', 'Silver Mixer Tap.', 9.99, 50, 'Attractive, yet they provide an efficient flow.', '/WebscriptSite/images/item19.png')");
     
     $conn->exec("INSERT INTO PRODUCTS (PRODUCT_CAT, PRODUCT_NAME, PRICE, Quantity, PRODUCT_DESC, PRODUCT_IMAGE)
     VALUES ('BATHROOM', '500L Bathtub', 184.99, 50, 'Tough and large. White Bathtub.', '/WebscriptSite/images/item20.png')");
+    
+    $statement = $conn->prepare("INSERT INTO ORDERS (PRODUCT_ID, PRODUCT_NAME, PRICE, QUANTITY, RECIPIENT, RECIPIENT_ADDRESS)
+    VALUES (:id, :name, :price, :quantity, :recipient, :address)");
+    $statement->bindParam(':id', $id);
+    $statement->bindParam(':name', $name);
+    $statement->bindParam(':price', $price);
+    $statement->bindParam(':quantity', $quantity);
+    $statement->bindParam(':recipient', $recipient);
+    $statement->bindParam(':address', $address);
+    
+    //Insert a sql row
+    $id = 1;
+    $name = "Secateurs";
+    $price = 24.99;
+    $quantity = 1;
+    $recipient = "MARCUS COLE";
+    $address = "52 KINGS ROAD, TONBRIDGE, KENT, TN9 2HD";
+    $statement->execute();
+    
+    //Insert a sql row
+    $id = 2;
+    $name = "2m Hose Reel";
+    $price = 14.99;
+    $quantity = 1;
+    $recipient = "MARCUS COLE";
+    $address = "5 NORMAN ROAD, SOUTHSEA, PO4 0LP";
+    $statement->execute();
+    
+    //Insert a sql row
+    $id = 3;
+    $name = "Apple Tree";
+    $price = 29.99;
+    $quantity = 1;
+    $recipient = "MARCUS COLE";
+    $address = "5 NORMAN ROAD, SOUTHSEA, PO4 0LP";
+    $statement->execute(); 
+    
     
     $conn->commit();
     

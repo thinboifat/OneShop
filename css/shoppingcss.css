@@ -71,6 +71,10 @@ td img {
     display:none;
 }
 
+.hidden {
+    display: none;
+}
+
 #imageDropzone {
     width: 15vw;
 }
@@ -348,7 +352,10 @@ box-shadow: 0px 0px 10px black;
   font-size: 1.25em;
 }
 
-
+.UserDetails {
+    text-align: center;
+    //padding-right: 10%;
+}
 
 
 
