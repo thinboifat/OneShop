@@ -46,9 +46,9 @@ try {
     $statement = $conn->prepare("SELECT PRODUCT_IMAGE, PRICE, PRODUCT_NAME, QUANTITY, PRODUCT_DESC, PRODUCT_ID FROM PRODUCTS WHERE PRODUCT_NAME LIKE '%$search%'");
     $statement->execute(array(':name' => $_GET["search"]));
     $currentRow = $statement->fetchAll();
-    
+    $i=0;
     foreach ($currentRow as &$row) {
-        
+        $i++;
         echo "
             <div class='featuredItem' id='featured'>
             <img src='$row[0]' id=$row[5] class='FeaturedImage' ondragstart='addBasketDrag(event)' alt='Dummy image for client to change'>
@@ -61,6 +61,9 @@ try {
     
     }
     
+    if ($i === 0) {
+        echo '<p>No Matches In Database Found</p>';
+    }
     
 } catch (Exception $ex) {
  // roll back the transaction if something failed

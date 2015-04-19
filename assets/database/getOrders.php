@@ -18,7 +18,7 @@ class TableRows extends RecursiveIteratorIterator {
     } 
 
     function endChildren() { 
-        echo "<td><button class='cell' onclick='removeItem(event)'>Remove</button></td> </tr>" . "\n";
+        echo "</tr>" . "\n";
     } 
 } 
 
@@ -30,31 +30,14 @@ $dbname = "content_management_system";
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    if ($selection == "itemName") {
-        $statement = $conn->prepare("SELECT PRODUCT_ID, PRODUCT_NAME, PRODUCT_CAT, PRICE, QUANTITY, PRODUCT_IMAGE FROM PRODUCTS WHERE PRODUCT_NAME LIKE '%$search%'");
-    }
-    else if ($selection == "itemID") {
-        $statement = $conn->prepare("SELECT PRODUCT_ID, PRODUCT_NAME, PRODUCT_CAT, PRICE, QUANTITY, PRODUCT_IMAGE FROM PRODUCTS WHERE PRODUCT_ID = $search"); 
-    }
-    
-    else if ($selection == "itemCat") {
-        $statement = $conn->prepare("SELECT PRODUCT_ID, PRODUCT_NAME, PRODUCT_CAT, PRICE, QUANTITY, PRODUCT_IMAGE FROM PRODUCTS WHERE PRODUCT_CAT LIKE '%$search%'"); 
-    }
-    
+    $statement = $conn->prepare("SELECT * FROM ORDERS"); 
     $statement->execute();
-    $i = 0;
-    
+
     // set the resulting array to associative
     $result = $statement->setFetchMode(PDO::FETCH_ASSOC); 
     foreach(new TableRows(new RecursiveArrayIterator($statement->fetchAll())) as $k=>$v) { 
         echo $v;
-        $i++;
     }
-    
-    if ($i === 0) {
-        echo '<p>No Matches In Database Found</p>';
-    }
-    
 }
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();

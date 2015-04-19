@@ -18,7 +18,7 @@ class TableRows extends RecursiveIteratorIterator {
     } 
 
     function endChildren() { 
-        echo "<td><button class='cell' onclick='removeItem(event)'>Remove</button></td> </tr>" . "\n";
+        echo "</td> </tr>" . "\n";
     } 
 } 
 
@@ -31,17 +31,26 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     if ($selection == "itemName") {
-        $statement = $conn->prepare("SELECT PRODUCT_ID, PRODUCT_NAME, PRODUCT_CAT, PRICE, QUANTITY, PRODUCT_IMAGE FROM PRODUCTS WHERE PRODUCT_NAME LIKE '%$search%'");
+        $statement = $conn->prepare("SELECT * FROM ORDERS WHERE PRODUCT_NAME LIKE '%$search%'");
     }
     else if ($selection == "itemID") {
-        $statement = $conn->prepare("SELECT PRODUCT_ID, PRODUCT_NAME, PRODUCT_CAT, PRICE, QUANTITY, PRODUCT_IMAGE FROM PRODUCTS WHERE PRODUCT_ID = $search"); 
+        $statement = $conn->prepare("SELECT * FROM ORDERS WHERE ORDER_ID = $search"); 
     }
     
-    else if ($selection == "itemCat") {
-        $statement = $conn->prepare("SELECT PRODUCT_ID, PRODUCT_NAME, PRODUCT_CAT, PRICE, QUANTITY, PRODUCT_IMAGE FROM PRODUCTS WHERE PRODUCT_CAT LIKE '%$search%'"); 
+    else if ($selection == "address") {
+        $statement = $conn->prepare("SELECT * FROM ORDERS WHERE RECIPIENT_ADDRESS LIKE '%$search%'"); 
+    }
+    
+    else if ($selection == "recipient") {
+        $statement = $conn->prepare("SELECT * FROM ORDERS WHERE RECIPIENT LIKE '%$search%'"); 
+    }
+    
+    else if ($selection == "date") {
+        $statement = $conn->prepare("SELECT * FROM ORDERS WHERE ORDER_DATE LIKE '%$search%'");  
     }
     
     $statement->execute();
+    
     $i = 0;
     
     // set the resulting array to associative
@@ -54,7 +63,6 @@ try {
     if ($i === 0) {
         echo '<p>No Matches In Database Found</p>';
     }
-    
 }
 catch(PDOException $e) {
     echo "Error: " . $e->getMessage();
