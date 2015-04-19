@@ -8,3 +8,7 @@
 function clearIDText(){
     document.getElementById("searchForItemID").value="";
 }
+
+function clearNameText(){
+    document.getElementById("finder").value="";
+}

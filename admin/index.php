@@ -28,15 +28,15 @@ This website was built by Marcus Cole
         <header class="TopContainer">
             <nav class="topMenu">
                 <ul>
-                    <!--<li><a href="/WebscriptSite/cms/addStock.php">Edit Quantity</a></li>
-                    <li><a href="/WebscriptSite/cms/newItem.php">Add Items</a></li>-->
+                    <li><a href="/WebscriptSite/admin/stock.php">Stock Checks</a></li>
+                    <li><a href="/WebscriptSite/admin/finance.php">Finance</a></li>
                     <li><a href="/WebscriptSite/admin/index.php">Home</a>
                 </ul>
             </nav>
         <h1 class="Title" id="homepageTitle">Admin Panel</h1>
         </header>
         <section class="MainCMSSection">        
-        <h2 class="Subheading" id="numberInCMS">All Items</h2>
+        <h2 class="Subheading" id="numberInCMS">All Orders</h2>
             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                 <select name="selection">
                     <option value="itemID">Order ID</option>
