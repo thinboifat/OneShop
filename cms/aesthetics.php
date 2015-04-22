@@ -1,6 +1,7 @@
 
 
 <?php
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     
@@ -81,6 +82,7 @@ This website was built by Marcus Cole
         <h1 class="Title" id="homepageTitle">CMS - Add Items</h1>
         </header>
         <section class="MainCMSSection">
+        
         <h2 class="Subheading" id="numberInCMS">Change The Appearance Of Your Web Site.</h2>
         
         <p> Here you can change the appearance of your web site.
@@ -91,9 +93,14 @@ This website was built by Marcus Cole
         <input id=submitLogo" type="submit">
         
         </form>
-
-        <!-- Shopping basket is generated here depending on number of items -->
-        
+        <p> </p>
+        <p>Here, you can change the look of the site, by switching designs.</p>
+        <div class="changeCSS" id="negative">
+        <p>Negative Design</p>
+        </div>
+        <div class="changeCSS" id="positive">
+        <p>Positive Design</p>
+        </div>
         
          </section>
         <footer>
@@ -108,4 +115,5 @@ This website was built by Marcus Cole
             </section>
         </footer>
     </body>
+    <script src="/WebscriptSite/scripts/changecss.js"> </script>
 </html>

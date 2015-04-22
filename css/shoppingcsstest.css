@@ -11,7 +11,7 @@ and open the template in the editor.
 .addToBasket {
     width: 40%;
     height: 5vh;
-    background-color: orangered;
+    background-color: blue;
     margin-left: auto;
     margin-right: auto;
     /* padding-top: 10%; */
@@ -31,39 +31,6 @@ article {
 }
 
 .BasicText {
-}
-
-.changeCSS {
-  display: block;
-  background: bisque;
-  width: 25%;
-  height: 100%;
-  height: 15vh; 
-  margin-left: 40%;
-  border: solid black;
-  margin-bottom: 2%;
-}
-
-.changeCSS p {
-padding-top: 8%;
-text-align: center;
-font-size: 2em;
-}
-
-.changeCSS:hover {
-    cursor: pointer;
-}
-
-#positive {
-    background: url(/WebscriptSite/assets/textures/upfeathers.png) repeat 0 0;
-    color: black;
-    
-}
-
-#negative {
-    background: url(/WebscriptSite/assets/textures/footer_lodyas.png) repeat 0 0;
-    color: white;
-    
 }
 
 .BasketText {
@@ -138,7 +105,7 @@ td img {
 
 
 body {
-  background: url(/WebscriptSite/assets/textures/footer_lodyas.png) repeat 0 0;
+  background: url(/WebscriptSite/assets/textures/cream_dust.png) repeat 0 0;
 
   margin-bottom: 2.5%;
   margin-top: 1%;

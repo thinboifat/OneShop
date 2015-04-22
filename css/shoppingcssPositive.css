@@ -11,7 +11,7 @@ and open the template in the editor.
 .addToBasket {
     width: 40%;
     height: 5vh;
-    background-color: orangered;
+    background-color: blue;
     margin-left: auto;
     margin-right: auto;
     /* padding-top: 10%; */
@@ -28,9 +28,6 @@ article {
     margin-top: 0;
     margin-bottom: 5%;
     box-shadow: 0px 0px 12.5px black;
-}
-
-.BasicText {
 }
 
 .changeCSS {
@@ -64,6 +61,9 @@ font-size: 2em;
     background: url(/WebscriptSite/assets/textures/footer_lodyas.png) repeat 0 0;
     color: white;
     
+}
+
+.BasicText {
 }
 
 .BasketText {
@@ -138,7 +138,7 @@ td img {
 
 
 body {
-  background: url(/WebscriptSite/assets/textures/footer_lodyas.png) repeat 0 0;
+  background: url(/WebscriptSite/assets/textures/upfeathers.png) repeat 0 0;
 
   margin-bottom: 2.5%;
   margin-top: 1%;
@@ -221,7 +221,7 @@ h1 {
     font-family: 'Lobster', Georgia, Times, serif;
     font-size: 70px;
     line-height: 100px;
-    color: whitesmoke;
+    color: black;
 }
  
 h2 {
@@ -353,27 +353,26 @@ text-align: center;
 }
 
 .topMenu a:link,a:visited {
-background: #0158c2;
-color: #85bcff;
+  background: green;
+  color: black;
 display:block;
 font-weight:bold;
 padding:4px;
 text-decoration:none;
-text-transform:uppercase;
 width: 175px;
 padding-right: 0px;
 padding-left: 0px;
 }
 
 .topMenu a:hover, a:active {
-    background-color:#8dd9fb;
-    color:#0158c2;
+    background-color: whitesmoke;
+    color: black;
 }
 
 .topMenu li {
 float: right;
-border: thin solid #0158c2;
-box-shadow: 0px 0px 10px black;
+border: thin solid black;
+box-shadow: 0px 0px 4px whitesmoke;
 }
 
 #searchForName {
