@@ -53,6 +53,7 @@ This website was built by Marcus Cole
         <header class="TopContainer">
             <nav class="topMenu">
                 <ul>
+                    <li><a href="/WebscriptSite/cms/aesthetics.php">Change Aesthetics</a>
                     <li><a href="/WebscriptSite/cms/addStock.php">Edit Quantity</a></li>
                     <li><a href="/WebscriptSite/cms/newItem.php">Add Items</a></li>
                     <li><a href="/WebscriptSite/cms/index.php">Home</a>

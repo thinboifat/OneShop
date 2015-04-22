@@ -7,21 +7,6 @@
 
 $database = true;
 
-//Check if Database exists.
-
-//If Yes, continue to CMS screen
-
-//If No, create a database called content_management_system with config.php
-          
-//
-   //Create tables, place in seperate file?
-    //try {
-    //include_once 'initialdatabasetables.php';
-    //} catch (Exception $ex) {
-    //
-    //}
-    //Confirm creation of table creation.
-
 //Form validation and submittion.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
@@ -137,6 +122,7 @@ This website was built by Marcus Cole
         <header class="TopContainer">
             <nav class="topMenu">
                 <ul>
+                    <li><a href="/WebscriptSite/cms/aesthetics.php">Change Aesthetics</a>
                     <li><a href="/WebscriptSite/cms/addStock.php">Edit Quantity</a></li>
                     <li><a href="/WebscriptSite/cms/newItem.php">Add Items</a></li>
                     <li><a href="/WebscriptSite/cms/index.php">Home</a>
@@ -169,11 +155,6 @@ This website was built by Marcus Cole
                     <th></th>
                     <th></th>
                 </tr>
-                <?php
-                if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                    //Display the data they submitted.
-                }
-                ?>
                 <tr class="AddItemRow">
                     <th >
                         <input id="imageDropzone" type="file" name="photoUploads" >
