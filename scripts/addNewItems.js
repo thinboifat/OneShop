@@ -6,15 +6,14 @@
 
 // call initialization file
 if (window.File && window.FileList && window.FileReader) {
-	init();
+	//init();
 }
 
 function init() {
     //handleDrop();
     //uploadImage();
     var fileselect = $id("fileselect"),
-    filedrag = $id("filedrag"),
-    submitbutton = $id("submitbutton");
+    filedrag = $id("filedrag");
 
     // file select
     fileselect.addEventListener("change", FileSelectHandler, false);

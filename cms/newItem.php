@@ -24,6 +24,51 @@ $database = true;
 
 //Form validation and submittion.
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["photoUploads"]["name"]);
+$uploadOk = 1;
+$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+// Check if image file is a actual image or fake image
+if(isset($_POST["submit"])) {
+    $check = getimagesize($_FILES["photoUploads"]["tmp_name"]);
+    if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+    } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+    }
+}
+// Check if file already exists
+if (file_exists($target_file)) {
+    echo "Sorry, file already exists.";
+    $uploadOk = 0;
+}
+// Check file size
+if ($_FILES["photoUploads"]["size"] > 500000) {
+    echo "Sorry, your file is too large.";
+    $uploadOk = 0;
+}
+// Allow certain file formats
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+&& $imageFileType != "gif" ) {
+    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    $uploadOk = 0;
+}
+// Check if $uploadOk is set to 0 by an error
+if ($uploadOk == 0) {
+    echo "Sorry, your file was not uploaded.";
+// if everything is ok, try to upload file
+} else {
+    if (move_uploaded_file($_FILES["photoUploads"]["tmp_name"], $target_file)) {
+        echo "The file ". basename( $_FILES["photoUploads"]["name"]). " has been uploaded.";
+    } else {
+        echo "Sorry, there was an error uploading your file.";
+    }
+}
+
   
   $itemName = test_input($_POST["ItemName"]);
   $itemCat = test_input($_POST["ItemCat"]);
@@ -31,8 +76,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $Quantity = test_quantity($_POST["Quantity"]);
   $Description = test_input($_POST["Description"]);
   $Featured = test_input($_POST["Featured"]);
-  $Photo = "/WebscriptSite/images/uploads/";
-  $Photo .= test_image($_POST["photoUploads"]);
+  $Photo = "/WebscriptSite/cms/uploads/";
+  $Photo .= $_FILES["photoUploads"]["name"];
 
   $addToDB = $_SERVER['DOCUMENT_ROOT'];
   $addToDB .= "/WebscriptSite/assets/database/newRecord.php";
@@ -109,28 +154,9 @@ This website was built by Marcus Cole
         
         <p> To upload a product, first upload an image of the product(s). (300px x 300px files only please!). Multiple images can be uploaded at the same time. </p>
         <p> Then, fill in the product information, and press submit. </p>
-        <form id="upload" action="/WebscriptSite/images/uploadImage.php" method="POST" enctype="multipart/form-data">
-        <fieldset>
-        <legend>Image Upload</legend>
-        <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
-        <div>
-            <label for="fileselect">Files to upload:</label>
-            <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
-            <div id="filedrag">or drop files here</div>
-        </div>
-            <div id="submitbutton">
-                <button type="submit">Upload Files</button>
-            </div>
-        </fieldset>
 
-        </form>
-
-<div id="messages">
-<p>Status Messages</p>
-</div>
-        
         <!-- Shopping basket is generated here depending on number of items -->
-        <form id="addToDBForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+        <form id="addToDBForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data" method="POST">
             <table class="CMSItemList" id="CMSAddItems">
                 <tr class='TitleRow'>
                     <th>Item Image</th>
