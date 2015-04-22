@@ -31,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $Quantity = test_quantity($_POST["Quantity"]);
   $Description = test_input($_POST["Description"]);
   $Featured = test_input($_POST["Featured"]);
-  $Photo = test_image($_POST["photoUploads"]);
+  $Photo = "/WebscriptSite/images/uploads/";
+  $Photo .= test_image($_POST["photoUploads"]);
 
   $addToDB = $_SERVER['DOCUMENT_ROOT'];
   $addToDB .= "/WebscriptSite/assets/database/newRecord.php";
@@ -105,6 +106,29 @@ This website was built by Marcus Cole
             echo "<p id='noItemMessage'>Error. No database has been created.</p>";
             }
             ?>
+        
+        <p> To upload a product, first upload an image of the product(s). (300px x 300px files only please!). Multiple images can be uploaded at the same time. </p>
+        <p> Then, fill in the product information, and press submit. </p>
+        <form id="upload" action="/WebscriptSite/images/uploadImage.php" method="POST" enctype="multipart/form-data">
+        <fieldset>
+        <legend>Image Upload</legend>
+        <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="300000" />
+        <div>
+            <label for="fileselect">Files to upload:</label>
+            <input type="file" id="fileselect" name="fileselect[]" multiple="multiple" />
+            <div id="filedrag">or drop files here</div>
+        </div>
+            <div id="submitbutton">
+                <button type="submit">Upload Files</button>
+            </div>
+        </fieldset>
+
+        </form>
+
+<div id="messages">
+<p>Status Messages</p>
+</div>
+        
         <!-- Shopping basket is generated here depending on number of items -->
         <form id="addToDBForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
             <table class="CMSItemList" id="CMSAddItems">
