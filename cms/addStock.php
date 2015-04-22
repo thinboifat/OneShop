@@ -75,7 +75,7 @@ This website was built by Marcus Cole
         <h1 class="Title" id="homepageTitle">CMS - Add Items</h1>
         </header>
         <section class="MainCMSSection">
-        <h2 class="Subheading" id="numberInCMS">Add Items</h2>
+        <h2 class="Subheading" id="numberInCMS">Change Item Stock</h2>
         <?php 
         if ($database == false)  {
             echo "<p id='noItemMessage'>Error. No database has been created.</p>";

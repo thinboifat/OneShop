@@ -152,7 +152,7 @@ This website was built by Marcus Cole
             }
             ?>
         
-        <p> To upload a product, first upload an image of the product(s). (300px x 300px files only please!). Multiple images can be uploaded at the same time. </p>
+        <p> To upload a product, first choose an image of the product. (Square 300px x 300px files work best!). Multiple images can be uploaded at the same time. </p>
         <p> Then, fill in the product information, and press submit. </p>
 
         <!-- Shopping basket is generated here depending on number of items -->

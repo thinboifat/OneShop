@@ -15,3 +15,4 @@ ajaxObj.onreadystatechange = function()
     };
     ajaxObj.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     ajaxObj.send("cat=" + category);
+    

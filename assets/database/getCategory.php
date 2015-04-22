@@ -1,7 +1,7 @@
 <?php
 
 $currentItem = 0;
-$cat = $_POST["cat"];
+$cat = $header;
 
 $servername = "localhost";
 $username = "root";

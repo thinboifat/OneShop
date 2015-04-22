@@ -24,11 +24,18 @@ This website was built by Marcus Cole
                 $path = $_SERVER['DOCUMENT_ROOT'];
                 $path .= "/WebscriptSite/assets/navbar.php";
                 include_once($path);
+                $header = $pages[5];
             ?>
         </header>
         <section class="MainSection">
-        <h2 id="itemCat" class="Subheading">Bathroom</h2>
+        <?php echo" <div> <h2 id='itemCat' class='Subheading'> $header </h2></div>"; ?>    
+        
             <div class="FeaturedContainer" id="featuredContainer">
+                <?php 
+                $path = $_SERVER['DOCUMENT_ROOT'];
+                $path .= "/WebscriptSite/assets/database/getCategory.php";
+                include_once($path);
+                ?>
             </div>
         </section>
         <article ondrop="addBasketDrop(event)" ondragover="allowImageDrop(event)" id="ShoppingBasket">
@@ -54,6 +61,5 @@ This website was built by Marcus Cole
             </section>
         </footer>
     </body>
-    <script src="/WebscriptSite/scripts/categoryPage.js"> </script>
     <script src="/WebscriptSite/scripts/basketManager.js"> </script>
 </html>
