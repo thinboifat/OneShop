@@ -8,8 +8,9 @@ try {
   
     $connection = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // Sets the PDO error mode to exception
+    
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
+    
     $sql ="
     CREATE TABLE IF NOT EXISTS PRODUCTS (
     PRODUCT_ID INT(6) NOT NULL AUTO_INCREMENT,

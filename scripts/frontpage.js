@@ -1,7 +1,7 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * To retrieve fearured items, this simple script creates an ajax object,
+ * and then retrives the content form the PHp responder file 'getItems.php', and
+ * places it in the page for the viewer to se and interact with.
  */
 
 var ajaxObj = new XMLHttpRequest();

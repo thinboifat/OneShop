@@ -16,11 +16,11 @@ $search = FALSE;
 
 $buildDB = $_SERVER['DOCUMENT_ROOT'];
 $buildDB .= "/647395/assets/database/initialdatabasetables.php";
-require_once($buildDB);
+//require_once($buildDB);
 
 $addDummy = $_SERVER['DOCUMENT_ROOT'];
 $addDummy .= "/647395/assets/database/createDummy.php";
-require_once($addDummy);
+//require_once($addDummy);
             
 
 //

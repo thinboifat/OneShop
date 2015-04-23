@@ -6,7 +6,10 @@
             <name>647395</name>
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
+            <word>API</word>
             <word>Electricals</word>
+            <word>website</word>
+            <word>websitew</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

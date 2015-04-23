@@ -62,7 +62,7 @@ This website was built by Marcus Cole
     <head>
         <link rel="stylesheet" href="/647395/css/shoppingCSS.css" type="text/css"/>
         <link rel="icon" type="image/png" href="/647395/assets/favicon.ico">
-        <title>CMS - Add Items</title>
+        <title>CMS - Aesthetics</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
@@ -79,7 +79,7 @@ This website was built by Marcus Cole
                     <li><a href="/647395/cms/index.php">Home</a>
                 </ul>
             </nav>
-        <h1 class="Title" id="homepageTitle">CMS - Add Items</h1>
+        <h1 class="Title" id="homepageTitle">Aesthetics</h1>
         </header>
         <section class="MainCMSSection">
         
