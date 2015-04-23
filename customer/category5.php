@@ -5,8 +5,8 @@ This website was built by Marcus Cole
 
 <html>
     <head>
-        <link rel="stylesheet" href="/WebscriptSite/css/shoppingCSS.css" type="text/css"/>
-        <link rel="icon" type="image/png" href="/WebscriptSite/assets/favicon.ico">
+        <link rel="stylesheet" href="/647395/css/shoppingCSS.css" type="text/css"/>
+        <link rel="icon" type="image/png" href="/647395/assets/favicon.ico">
         <title>One Shop Shopping</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +22,7 @@ This website was built by Marcus Cole
         <header class="TopContainer">
             <?php 
                 $path = $_SERVER['DOCUMENT_ROOT'];
-                $path .= "/WebscriptSite/assets/navbar.php";
+                $path .= "/647395/assets/navbar.php";
                 include_once($path);
                 $header = $pages[4];
             ?>
@@ -33,7 +33,7 @@ This website was built by Marcus Cole
             <div class="FeaturedContainer" id="featuredContainer">
                 <?php 
                 $path = $_SERVER['DOCUMENT_ROOT'];
-                $path .= "/WebscriptSite/assets/database/getCategory.php";
+                $path .= "/647395/assets/database/getCategory.php";
                 include_once($path);
                 ?>
             </div>
@@ -61,5 +61,5 @@ This website was built by Marcus Cole
             </section>
         </footer>
     </body>
-    <script src="/WebscriptSite/scripts/basketManager.js"> </script>
+    <script src="/647395/scripts/basketManager.js"> </script>
 </html>

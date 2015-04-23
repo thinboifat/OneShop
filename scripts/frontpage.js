@@ -5,7 +5,7 @@
  */
 
 var ajaxObj = new XMLHttpRequest();
-ajaxObj.open("Get", '/WebscriptSite/assets/database/getItems.php', true);
+ajaxObj.open("Get", '/647395/assets/database/getItems.php', true);
 ajaxObj.onreadystatechange = function()
 {if (ajaxObj.status === 200)
         if (ajaxObj.readyState === 4)

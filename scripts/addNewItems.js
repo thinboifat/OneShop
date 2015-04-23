@@ -202,7 +202,7 @@ function uploadImage() {
             var xhr = new XMLHttpRequest();
             
             // Open the connection.
-            xhr.open('POST', '/WebscriptSite/scripts/uploadImage.php', true);
+            xhr.open('POST', '/647395/scripts/uploadImage.php', true);
             xhr.setRequestHeader("X_FILENAME", file.name);
             xhr.send(file);
 

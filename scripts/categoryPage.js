@@ -6,7 +6,7 @@
 
 var category = document.getElementById("itemCat").innerHTML;
 var ajaxObj = new XMLHttpRequest();
-ajaxObj.open("POST", '/WebscriptSite/assets/database/getCategory.php', true);
+ajaxObj.open("POST", '/647395/assets/database/getCategory.php', true);
 ajaxObj.onreadystatechange = function()
 {if (ajaxObj.status === 200)
         if (ajaxObj.readyState === 4)

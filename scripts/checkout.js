@@ -62,7 +62,7 @@ function loadShoppingBasket(){
     var cell4 = newRow.insertCell(3);
     var cell5 = newRow.insertCell(4);
     
-    var imageURL = "/WebscriptSite/images/item1.png";
+    var imageURL = "/647395/images/item1.png";
     var image = document.createElement("IMG");
     image.src = imageURL;
     
@@ -93,7 +93,7 @@ function getShoppingBasket() {
      //createHiddenForms();
       console.log("Basket Pulled Successfully"); }
     };
-    ajaxObj.open("POST", '/WebscriptSite/assets/database/getBasket.php', true);
+    ajaxObj.open("POST", '/647395/assets/database/getBasket.php', true);
     ajaxObj.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     ajaxObj.send(basketContents);
 }
@@ -274,7 +274,7 @@ function createOrder() {
       console.log(ajaxObj.responseText);
       console.log("Order Sent"); }
     };
-    ajaxObj.open("POST", '/WebscriptSite/customer/orderConfirm.php', true);
+    ajaxObj.open("POST", '/647395/customer/orderConfirm.php', true);
     ajaxObj.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     ajaxObj.send(order);
     

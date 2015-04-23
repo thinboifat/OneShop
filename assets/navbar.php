@@ -13,10 +13,10 @@ try {
     $statement->execute();
     $currentRow = $statement->fetchAll();
     
-    echo "<div href='index.html'> <img class='logo' src='/WebscriptSite/cms/uploads/logo/logo.png' alt='Dummy Logo for client to change'/> </div>
+    echo "<div href='index.html'> <img class='logo' src='/647395/cms/uploads/logo/logo.png' alt='Dummy Logo for client to change'/> </div>
             <nav class='topMenu'>
             <ul>
-            <li><a href='/WebscriptSite/customer/checkout.php'>Checkout</a></li>
+            <li><a href='/647395/customer/checkout.php'>Checkout</a></li>
             ";
     
     
@@ -28,17 +28,17 @@ try {
         $row[0];
         array_push($pages,$row[0]);
         echo "
-                <li><a href='/WebscriptSite/customer/$page.php'>$row[0]</a></li>
+                <li><a href='/647395/customer/$page.php'>$row[0]</a></li>
                 
                ";
         $i++;
      }          
         echo "
-        <li><a href='/WebscriptSite/customer/index.php'>Home</a></li>
+        <li><a href='/647395/customer/index.php'>Home</a></li>
         </ul>
         </nav>
         <h1 class='Title' id='homepageTitle'>Welcome To One-Shop!</h1>
-        <form action='/WebscriptSite/customer/customerSearch.php' method='GET'>
+        <form action='/647395/customer/customerSearch.php' method='GET'>
             <input id='searchForName' onclick='clearNameText()' value='Search' type='text' name='search'>
             </form>";
     

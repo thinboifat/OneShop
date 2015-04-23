@@ -17,7 +17,7 @@ function init() {
 
 function buildDummyDB(){
     var xml = new XMLHttpRequest();
-    xml.open("GET", "/WebscriptSite/database/createDummy.php", true);
+    xml.open("GET", "/647395/database/createDummy.php", true);
     return false;
 }
 
@@ -31,7 +31,7 @@ function clearIDText(){
 
 function killDummyDB(){
     var xml = new XMLHttpRequest();
-    xml.open("GET", "/WebscriptSite/database/killDummy.php", true);
+    xml.open("GET", "/647395/database/killDummy.php", true);
     return false;
 }
 
@@ -64,7 +64,7 @@ function removeItem(event) {
         }
     }
     toSend = "itemID=" + itemID;
-    xmlhttp.open("POST","/WebscriptSite/assets/database/removeRecord.php",true);
+    xmlhttp.open("POST","/647395/assets/database/removeRecord.php",true);
     xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xmlhttp.send(toSend);
 }

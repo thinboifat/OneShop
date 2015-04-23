@@ -28,7 +28,7 @@ function switchToPositive() {
             }
         }
     }
-    xhr.open('POST', '/WebscriptSite/css/changeCSS.php');
+    xhr.open('POST', '/647395/css/changeCSS.php');
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("style=positive");
 }
@@ -52,7 +52,7 @@ function switchToNegative() {
             }
         }
     }
-    xhr.open('POST', '/WebscriptSite/css/changeCSS.php');
+    xhr.open('POST', '/647395/css/changeCSS.php');
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send("style=negative");
 }

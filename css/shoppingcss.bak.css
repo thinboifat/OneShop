@@ -23,7 +23,7 @@ article {
     float: left;
     width: 11%;
     margin-left: 2%;
-    background: url(/WebscriptSite/assets/textures/paper_fibers.png) repeat 0 0;
+    background: url(/647395/assets/textures/paper_fibers.png) repeat 0 0;
     padding: 0;
     margin-top: 0;
     margin-bottom: 5%;
@@ -105,7 +105,7 @@ td img {
 
 
 body {
-  background: url(/WebscriptSite/assets/textures/footer_lodyas.png) repeat 0 0;
+  background: url(/647395/assets/textures/footer_lodyas.png) repeat 0 0;
 
   margin-bottom: 2.5%;
   margin-top: 1%;
@@ -150,7 +150,7 @@ footer{
     margin-left: 2.5%;
     float: right;
     box-shadow: 0px 0px 12.5px black;
-    background: url(/WebscriptSite/assets/textures/paper_fibers.png) repeat 0 0;
+    background: url(/647395/assets/textures/paper_fibers.png) repeat 0 0;
 }
 
 
@@ -220,7 +220,7 @@ li, ul {
     padding-bottom: 2.5%;
     padding-top: 2.5%;
     width: 75%;
-    background: url(/WebscriptSite/assets/textures/paper_fibers.png) repeat 0 0;
+    background: url(/647395/assets/textures/paper_fibers.png) repeat 0 0;
     margin-left: 2.5%;
     float: left;
 }
@@ -231,7 +231,7 @@ li, ul {
     padding-bottom: 2.5%;
     padding-top: 2.5%;
     width: 90%;
-    background: url(/WebscriptSite/assets/textures/paper_fibers.png) repeat 0 0;
+    background: url(/647395/assets/textures/paper_fibers.png) repeat 0 0;
     margin-left: 5%;
     float: left;
 }
@@ -240,7 +240,7 @@ li, ul {
     display: inline-block;
     box-shadow: 0px 0px 12.5px black;
     width: 80%;
-    background: url(/WebscriptSite/assets/textures/paper_fibers.png) repeat 0 0;
+    background: url(/647395/assets/textures/paper_fibers.png) repeat 0 0;
     margin-left: 5%;
     float: left;
     padding-right: 5%;

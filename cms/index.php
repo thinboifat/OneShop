@@ -15,12 +15,12 @@ $search = FALSE;
 //If No, create a database called content_management_system with config.php
 
 $buildDB = $_SERVER['DOCUMENT_ROOT'];
-$buildDB .= "/WebscriptSite/assets/database/initialdatabasetables.php";
+$buildDB .= "/647395/assets/database/initialdatabasetables.php";
 require_once($buildDB);
 
 $addDummy = $_SERVER['DOCUMENT_ROOT'];
-$addDummy .= "/WebscriptSite/assets/database/createDummy.php";
-//require_once($addDummy);
+$addDummy .= "/647395/assets/database/createDummy.php";
+require_once($addDummy);
             
 
 //
@@ -40,8 +40,8 @@ This website was built by Marcus Cole
 
 <html>
     <head>
-        <link rel="stylesheet" href="/WebscriptSite/css/shoppingCSS.css" type="text/css"/>
-        <link rel="icon" type="image/png" href="/WebscriptSite/assets/favicon.ico">
+        <link rel="stylesheet" href="/647395/css/shoppingCSS.css" type="text/css"/>
+        <link rel="icon" type="image/png" href="/647395/assets/favicon.ico">
         <title>One Shop Shopping</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,10 +53,10 @@ This website was built by Marcus Cole
         <header class="TopContainer">
             <nav class="topMenu">
                 <ul>
-                    <li><a href="/WebscriptSite/cms/aesthetics.php">Change Aesthetics</a>
-                    <li><a href="/WebscriptSite/cms/addStock.php">Edit Quantity</a></li>
-                    <li><a href="/WebscriptSite/cms/newItem.php">Add Items</a></li>
-                    <li><a href="/WebscriptSite/cms/index.php">Home</a>
+                    <li><a href="/647395/cms/aesthetics.php">Change Aesthetics</a>
+                    <li><a href="/647395/cms/addStock.php">Edit Quantity</a></li>
+                    <li><a href="/647395/cms/newItem.php">Add Items</a></li>
+                    <li><a href="/647395/cms/index.php">Home</a>
                 </ul>
             </nav>
         <h1 class="Title" id="homepageTitle">CMS Manager</h1>
@@ -100,13 +100,13 @@ This website was built by Marcus Cole
                 $selection = test_input($_POST["selection"]);
 
                 $addToDB = $_SERVER['DOCUMENT_ROOT'];
-                $addToDB .= "/WebscriptSite/assets/database/recordSearch.php";
+                $addToDB .= "/647395/assets/database/recordSearch.php";
                 require_once($addToDB);
   
                 }
                 else {
                     $loadTables = $_SERVER['DOCUMENT_ROOT'];
-                    $loadTables .= "/WebscriptSite/assets/database/getRecords.php";
+                    $loadTables .= "/647395/assets/database/getRecords.php";
                     include_once($loadTables);
                 }
                 ?>
@@ -119,8 +119,8 @@ This website was built by Marcus Cole
          </section>
         <footer>
             <section class="Copyright">
-                <p>Switch to <a href="/WebscriptSite/customer/index.php">Customer View</a></p>
-                <p>Switch to <a href="/WebscriptSite/admin/index.php">Admin View</a></p>
+                <p>Switch to <a href="/647395/customer/index.php">Customer View</a></p>
+                <p>Switch to <a href="/647395/admin/index.php">Admin View</a></p>
                  <ul class="footerMenu">
                     <li> <a href="http://validator.w3.org/check?uri=referer">
                             HTML</a></li>
@@ -131,5 +131,5 @@ This website was built by Marcus Cole
             </section>
         </footer>
     </body>
-    <script src="/WebscriptSite/scripts/databaseFunctions.js"> </script>
+    <script src="/647395/scripts/databaseFunctions.js"> </script>
 </html>

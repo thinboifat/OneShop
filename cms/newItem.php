@@ -61,11 +61,11 @@ if ($uploadOk == 0) {
   $Quantity = test_quantity($_POST["Quantity"]);
   $Description = test_input($_POST["Description"]);
   $Featured = test_input($_POST["Featured"]);
-  $Photo = "/WebscriptSite/cms/uploads/";
+  $Photo = "/647395/cms/uploads/";
   $Photo .= $_FILES["photoUploads"]["name"];
 
   $addToDB = $_SERVER['DOCUMENT_ROOT'];
-  $addToDB .= "/WebscriptSite/assets/database/newRecord.php";
+  $addToDB .= "/647395/assets/database/newRecord.php";
   echo $Featured;
      
   require_once($addToDB);
@@ -109,8 +109,8 @@ This website was built by Marcus Cole
 
 <html>
     <head>
-        <link rel="stylesheet" href="/WebscriptSite/css/shoppingCSS.css" type="text/css"/>
-        <link rel="icon" type="image/png" href="/WebscriptSite/assets/favicon.ico">
+        <link rel="stylesheet" href="/647395/css/shoppingCSS.css" type="text/css"/>
+        <link rel="icon" type="image/png" href="/647395/assets/favicon.ico">
         <title>CMS - Add Items</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,10 +122,10 @@ This website was built by Marcus Cole
         <header class="TopContainer">
             <nav class="topMenu">
                 <ul>
-                    <li><a href="/WebscriptSite/cms/aesthetics.php">Change Aesthetics</a>
-                    <li><a href="/WebscriptSite/cms/addStock.php">Edit Quantity</a></li>
-                    <li><a href="/WebscriptSite/cms/newItem.php">Add Items</a></li>
-                    <li><a href="/WebscriptSite/cms/index.php">Home</a>
+                    <li><a href="/647395/cms/aesthetics.php">Change Aesthetics</a>
+                    <li><a href="/647395/cms/addStock.php">Edit Quantity</a></li>
+                    <li><a href="/647395/cms/newItem.php">Add Items</a></li>
+                    <li><a href="/647395/cms/index.php">Home</a>
                 </ul>
             </nav>
         <h1 class="Title" id="homepageTitle">CMS - Add Items</h1>
@@ -180,8 +180,8 @@ This website was built by Marcus Cole
          </section>
         <footer>
             <section class="Copyright">
-                <p>Switch to <a href="/WebscriptSite/customer/index.php">Customer View</a></p>
-                <p>Switch to <a href="/WebscriptSite/admin/index.php">Admin View</a></p>
+                <p>Switch to <a href="/647395/customer/index.php">Customer View</a></p>
+                <p>Switch to <a href="/647395/admin/index.php">Admin View</a></p>
                  <ul class="footerMenu">
                     <li> <a href="http://validator.w3.org/check?uri=referer">
                             HTML</a></li>
@@ -190,5 +190,5 @@ This website was built by Marcus Cole
             </section>
         </footer>
     </body>
-    <script src="/WebscriptSite/scripts/addNewItems.js"> </script>
+    <script src="/647395/scripts/addNewItems.js"> </script>
 </html>

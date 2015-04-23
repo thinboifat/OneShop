@@ -23,5 +23,5 @@ if (!copy($negative, $cssinuse)) {
 
 }
 
-//header("Location: /WebscriptSite/cms/aesthetics.php");
+//header("Location: /647395/cms/aesthetics.php");
 //die();
