@@ -11,9 +11,10 @@ and open the template in the editor.
 .addToBasket {
     width: 40%;
     height: 5vh;
-    background-color: blue;
+    background-color: greenyellow;
     margin-left: auto;
     margin-right: auto;
+    color: black;
     /* padding-top: 10%; */
 }
 
@@ -160,9 +161,10 @@ body {
     border: #0158c2 dashed;
     text-align: center;
     alignment-adjust: central;
-    background: #85bcff;
+    background: bisque;
     padding-bottom: 1%;
     alignment-adjust: central;
+    
     
 }
 
@@ -353,7 +355,7 @@ text-align: center;
 }
 
 .topMenu a:link,a:visited {
-  background: green;
+  background: greenyellow;
   color: black;
 display:block;
 font-weight:bold;
